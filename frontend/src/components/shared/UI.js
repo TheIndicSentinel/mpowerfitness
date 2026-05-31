@@ -54,7 +54,7 @@ export const LoadingSpinner = ({ size = 'md', center = false }) => {
   const spinner = (
     <div style={{
       width: s.w, height: s.w,
-      border: `${s.b}px solid rgba(200,241,53,0.15)`,
+      border: `${s.b}px solid rgba(46,138,255,0.15)`,
       borderTopColor: 'var(--neon-lime)',
       borderRadius: '50%',
       animation: 'spin 0.8s linear infinite'
@@ -82,7 +82,7 @@ export const PageHeader = ({ title, highlight, subtitle, action }) => (
 );
 
 /* ==================== AVATAR ==================== */
-export const Avatar = ({ name, src, size = 40, color = 'var(--neon-lime)', bg = 'rgba(200,241,53,0.15)' }) => {
+export const Avatar = ({ name, src, size = 40, color = 'var(--neon-lime)', bg = 'rgba(46,138,255,0.15)' }) => {
   if (src) return <img src={src} alt={name} className="avatar" style={{ width: size, height: size }} />;
   return (
     <div className="avatar-placeholder" style={{ width: size, height: size, fontSize: size * 0.4, background: bg, color }}>
@@ -128,7 +128,7 @@ export const FilterTabs = ({ options, active, onChange, style }) => (
     {options.map((opt, i) => (
       <button key={opt.value || opt} onClick={() => onChange(opt.value || opt)}
         style={{
-          padding: '9px 16px', background: (opt.value || opt) === active ? 'rgba(200,241,53,0.1)' : 'none',
+          padding: '9px 16px', background: (opt.value || opt) === active ? 'rgba(46,138,255,0.1)' : 'none',
           border: 'none', cursor: 'pointer', fontSize: 13, fontWeight: 500,
           color: (opt.value || opt) === active ? 'var(--neon-lime)' : 'var(--text-secondary)',
           fontFamily: 'var(--font-body)', textTransform: 'capitalize',

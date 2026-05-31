@@ -5,7 +5,7 @@ import api from '../../utils/api';
 
 /* ── REFUND POLICY ─────────────────────────────────────────── */
 export const RefundPage = () => (
-  <InfoLayout>
+  <InfoLayout title="Refund Policy" description="MPower Fitness refund policy for subscriptions, session bookings and programme purchases.">
     <div style={{ marginBottom:40 }}>
       <div style={{ display:'inline-block', background:'rgba(78,159,255,.1)', border:'1px solid rgba(78,159,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--info)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Legal</div>
       <h1 style={{ fontSize:'clamp(26px,4vw,40px)', fontWeight:800, marginBottom:12 }}>Refund <span style={{ color:'var(--lime)' }}>Policy</span></h1>
@@ -24,7 +24,7 @@ export const RefundPage = () => (
         </ul>
       </div>
     ))}
-    <div className="card" style={{ background:'rgba(200,241,53,.06)', borderColor:'rgba(200,241,53,.2)' }}>
+    <div className="card" style={{ background:'rgba(46,138,255,.06)', borderColor:'rgba(46,138,255,.2)' }}>
       <p style={{ fontSize:14, color:'var(--t2)' }}>Questions? Contact <a href="mailto:refunds@mpowerfitness.in" style={{ color:'var(--lime)' }}>refunds@mpowerfitness.in</a></p>
     </div>
   </InfoLayout>
@@ -51,23 +51,23 @@ export const HelpPage = () => {
     { q:'How does the calorie calculator work?', a:'We use the MET formula: Calories = MET × body weight (kg) × duration (hours). HIIT burns ~8 MET, Yoga ~2.5 MET.' },
     { q:'What if my trainer misses a session?', a:'You receive a full refund plus ₹100 compensation credit, automatically added to your account.' },
     { q:'How do I verify my UTR for UPI payments?', a:'Open your UPI app, go to transaction history, find the payment, and note the 12-digit UTR. Enter it on the Mpower verification screen.' },
-    { q:'Can I use Mpower on my phone?', a:'Yes! Mpower is fully responsive and works on all screen sizes. A native app is coming in Q2 2025.' },
+    { q:'Can I use Mpower on my phone?', a:'Yes! Mpower is a fully responsive web platform that works on any phone, tablet or desktop browser — no download required. Just open it in your browser and log in.' },
     { q:'How do I cancel my subscription?', a:'Go to Profile → Subscription and click "Cancel Plan". Access continues until the end of your paid period.' },
     { q:'Are the trainers certified?', a:'All trainers must provide proof of certification (NASM, ACE, RYT, etc.) during registration and are verified by admin before listing.' },
     { q:'What payment methods are accepted?', a:'All UPI methods: GPay, PhonePe, Paytm, BHIM, and any UPI-enabled banking app.' },
     { q:'How do I delete my account?', a:'Contact support@mpowerfitness.in. Your data will be removed within 30 days per our Privacy Policy.' },
   ];
   return (
-    <InfoLayout>
+    <InfoLayout title="Help Centre" description="Frequently asked questions about MPower Fitness — bookings, trainers, payments, subscriptions and more.">
       <div style={{ marginBottom:40 }}>
-        <div style={{ display:'inline-block', background:'rgba(200,241,53,.1)', border:'1px solid rgba(200,241,53,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Help Centre</div>
+        <div style={{ display:'inline-block', background:'rgba(46,138,255,.1)', border:'1px solid rgba(46,138,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Help Centre</div>
         <h1 style={{ fontSize:'clamp(26px,4vw,40px)', fontWeight:800, marginBottom:12 }}>How can we <span style={{ color:'var(--lime)' }}>help you?</span></h1>
       </div>
       <h2 style={{ fontSize:20, fontWeight:700, marginBottom:20 }}>Frequently Asked Questions</h2>
       <div className="card" style={{ padding:'4px 20px', marginBottom:32 }}>
         {faqs.map(f => <FAQ key={f.q} q={f.q} a={f.a}/>)}
       </div>
-      <div className="card" style={{ textAlign:'center', background:'rgba(200,241,53,.04)', borderColor:'rgba(200,241,53,.15)' }}>
+      <div className="card" style={{ textAlign:'center', background:'rgba(46,138,255,.04)', borderColor:'rgba(46,138,255,.15)' }}>
         <h3 style={{ fontWeight:700, marginBottom:8 }}>Still need help?</h3>
         <p style={{ color:'var(--t2)', fontSize:14, marginBottom:16 }}>Mon–Sat, 9 AM to 9 PM IST</p>
         <div style={{ display:'flex', gap:10, justifyContent:'center', flexWrap:'wrap' }}>
@@ -82,11 +82,11 @@ export const HelpPage = () => {
 
 /* ── BECOME A TRAINER ─────────────────────────────────────────── */
 export const BecomeTrainerPage = () => (
-  <InfoLayout>
+  <InfoLayout title="Become a Trainer" description="Join MPower Fitness as a certified trainer. Set your own rates, flexible schedule, instant UPI payouts and built-in coaching tools.">
     <div style={{ marginBottom:48 }}>
-      <div style={{ display:'inline-block', background:'rgba(255,95,31,.1)', border:'1px solid rgba(255,95,31,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--orange)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>For Trainers</div>
+      <div style={{ display:'inline-block', background:'rgba(91,168,255,.1)', border:'1px solid rgba(91,168,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--orange)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>For Trainers</div>
       <h1 style={{ fontSize:'clamp(26px,4vw,48px)', fontWeight:800, marginBottom:16, lineHeight:1.2 }}>Grow Your Coaching<br/><span style={{ color:'var(--lime)' }}>with Mpower Fitness</span></h1>
-      <p style={{ fontSize:16, color:'var(--t2)', lineHeight:1.7, maxWidth:600, marginBottom:28 }}>Join 200+ certified trainers earning on their own schedule. Set your rates, build your client base, and get paid instantly via UPI.</p>
+      <p style={{ fontSize:16, color:'var(--t2)', lineHeight:1.7, maxWidth:600, marginBottom:28 }}>Join our growing network of certified trainers earning on their own schedule. Set your rates, build your client base, and get paid instantly via UPI.</p>
       <Link to="/trainer/register" className="btn btn-primary btn-lg">Apply as a Trainer →</Link>
     </div>
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:14, marginBottom:40 }}>
@@ -105,7 +105,7 @@ export const BecomeTrainerPage = () => (
         </div>
       ))}
     </div>
-    <div className="card" style={{ textAlign:'center', background:'rgba(255,95,31,.06)', borderColor:'rgba(255,95,31,.2)', padding:'40px 24px' }}>
+    <div className="card" style={{ textAlign:'center', background:'rgba(91,168,255,.06)', borderColor:'rgba(91,168,255,.2)', padding:'40px 24px' }}>
       <h2 style={{ fontWeight:800, fontSize:22, marginBottom:12 }}>Ready to join?</h2>
       <p style={{ color:'var(--t2)', marginBottom:24, fontSize:15 }}>Apply in 5 minutes. Verification takes 48 hours.</p>
       <Link to="/trainer/register" className="btn btn-primary btn-lg">Start Your Application</Link>
@@ -142,9 +142,9 @@ export const BlogPage = () => {
   const fmtDate = d => { try { return new Date(d).toLocaleDateString('en-IN',{month:'short',day:'numeric',year:'numeric'}); } catch { return ''; } };
 
   return (
-    <InfoLayout>
+    <InfoLayout title="Fitness Blog" description="Science-backed fitness, nutrition and training insights from certified MPower Fitness coaches.">
       <div style={{ marginBottom:40 }}>
-        <div style={{ display:'inline-block', background:'rgba(200,241,53,.1)', border:'1px solid rgba(200,241,53,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Blog</div>
+        <div style={{ display:'inline-block', background:'rgba(46,138,255,.1)', border:'1px solid rgba(46,138,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Blog</div>
         <h1 style={{ fontSize:'clamp(26px,4vw,40px)', fontWeight:800, marginBottom:12 }}>Fitness <span style={{ color:'var(--lime)' }}>Insights</span></h1>
         <p style={{ fontSize:15, color:'var(--t2)' }}>Science-backed tips from certified coaches and nutritionists.</p>
       </div>
@@ -244,16 +244,16 @@ export const BlogPage = () => {
 /* ── CAREERS ─────────────────────────────────────────────────── */
 export const CareersPage = () => {
   const JOBS = [
-    { title:'Senior React Developer', dept:'Engineering', type:'Full-time', location:'Mumbai / Remote', desc:'Build and scale our web platform serving 50K+ users. 4+ years React, TypeScript, REST APIs.' },
+    { title:'Senior React Developer', dept:'Engineering', type:'Full-time', location:'Mumbai / Remote', desc:'Build and scale our growing web platform. 4+ years React, TypeScript, REST APIs.' },
     { title:'Backend Node.js Engineer', dept:'Engineering', type:'Full-time', location:'Mumbai / Remote', desc:'Design scalable APIs and backend systems. Node.js, PostgreSQL, Redis, Socket.IO.' },
     { title:'Fitness Content Writer', dept:'Content', type:'Part-time / Contract', location:'Remote', desc:'Write science-backed fitness and nutrition articles. Sports science background preferred.' },
     { title:'Trainer Partnerships Manager', dept:'Business', type:'Full-time', location:'Bangalore', desc:'Recruit, onboard, and manage trainer network across metro cities.' },
     { title:'Customer Success Associate', dept:'Support', type:'Full-time', location:'Mumbai', desc:'Help users and trainers get the most from Mpower. Empathy and clear communication essential.' },
   ];
   return (
-    <InfoLayout>
+    <InfoLayout title="Careers" description="Join the MPower Fitness team. We're building the future of fitness in India — engineering, content, business and support roles.">
       <div style={{ marginBottom:48 }}>
-        <div style={{ display:'inline-block', background:'rgba(200,241,53,.1)', border:'1px solid rgba(200,241,53,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Careers</div>
+        <div style={{ display:'inline-block', background:'rgba(46,138,255,.1)', border:'1px solid rgba(46,138,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Careers</div>
         <h1 style={{ fontSize:'clamp(26px,4vw,48px)', fontWeight:800, marginBottom:16 }}>Join the <span style={{ color:'var(--lime)' }}>Mpower Team</span></h1>
         <p style={{ fontSize:16, color:'var(--t2)', lineHeight:1.7, maxWidth:560 }}>We're building the future of fitness in India. If you're passionate about health, technology, and making a real difference, we'd love to hear from you.</p>
       </div>
@@ -276,7 +276,7 @@ export const CareersPage = () => {
           </div>
         ))}
       </div>
-      <div className="card" style={{ textAlign:'center', background:'rgba(200,241,53,.04)', borderColor:'rgba(200,241,53,.15)' }}>
+      <div className="card" style={{ textAlign:'center', background:'rgba(46,138,255,.04)', borderColor:'rgba(46,138,255,.15)' }}>
         <h3 style={{ fontWeight:700, marginBottom:8 }}>Don't see a fit?</h3>
         <p style={{ color:'var(--t2)', fontSize:14, marginBottom:16 }}>Send us your CV and tell us how you'd contribute.</p>
         <a href="mailto:careers@mpowerfitness.in" className="btn btn-primary btn-sm">📧 careers@mpowerfitness.in</a>
@@ -287,7 +287,7 @@ export const CareersPage = () => {
 
 /* ── COOKIE POLICY ─────────────────────────────────────────────── */
 export const CookiePage = () => (
-  <InfoLayout>
+  <InfoLayout title="Cookie Policy" description="How MPower Fitness uses essential and analytics cookies. We never use advertising or tracking cookies.">
     <div style={{ marginBottom:40 }}>
       <div style={{ display:'inline-block', background:'rgba(78,159,255,.1)', border:'1px solid rgba(78,159,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--info)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Legal</div>
       <h1 style={{ fontSize:'clamp(26px,4vw,40px)', fontWeight:800, marginBottom:12 }}>Cookie <span style={{ color:'var(--lime)' }}>Policy</span></h1>

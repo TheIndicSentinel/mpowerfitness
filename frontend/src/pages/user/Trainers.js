@@ -22,12 +22,12 @@ const SESSION_TYPES = [
 
 /* ─── Sub-components (Single Responsibility) ───────────────────── */
 const TrainerProfileCard = ({ trainer }) => (
-  <div className="card" style={{ borderColor:'rgba(200,241,53,0.25)', marginBottom:16 }}>
+  <div className="card" style={{ borderColor:'rgba(46,138,255,0.25)', marginBottom:16 }}>
     {/* Header row */}
     <div style={{ display:'flex', gap:14, marginBottom:16, flexWrap:'wrap' }}>
       <div style={{
         width:72, height:72, borderRadius:'50%',
-        background:'rgba(255,95,31,0.12)', color:'var(--orange)',
+        background:'rgba(91,168,255,0.12)', color:'var(--orange)',
         display:'flex', alignItems:'center', justifyContent:'center',
         fontSize:28, fontWeight:700, flexShrink:0,
       }}>
@@ -56,8 +56,8 @@ const TrainerProfileCard = ({ trainer }) => (
     {/* Assigned badge */}
     <div style={{
       display:'inline-flex', alignItems:'center', gap:7,
-      padding:'6px 12px', background:'rgba(200,241,53,0.08)',
-      border:'1px solid rgba(200,241,53,0.25)', borderRadius:20,
+      padding:'6px 12px', background:'rgba(46,138,255,0.08)',
+      border:'1px solid rgba(46,138,255,0.25)', borderRadius:20,
       marginBottom:14, fontSize:12, fontWeight:600, color:'var(--neon-lime)',
     }}>
       ✓ Assigned by MPower Admin · tailored for your health profile
@@ -140,7 +140,7 @@ const DateScroller = ({ dates, selected, onSelect }) => {
               borderRadius:'var(--r-md)', cursor:'pointer',
               textAlign:'center', transition:'all .14s',
               border:`1.5px solid ${isSelected ? 'var(--lime)' : 'var(--border2)'}`,
-              background: isSelected ? 'rgba(200,241,53,.12)' : 'var(--s2)',
+              background: isSelected ? 'rgba(46,138,255,.12)' : 'var(--s2)',
             }}
           >
             <div style={{ fontSize:9, fontWeight:700, letterSpacing:'.05em', textTransform:'uppercase', color: isSelected ? 'var(--lime)' : 'var(--t3)', marginBottom:2 }}>
@@ -201,7 +201,7 @@ const BookingPanel = ({ trainer, avail, isMobile, onBook }) => {
               fontWeight: sessionType === val ? 700 : 500,
               transition:'all .14s',
               border: `1.5px solid ${sessionType === val ? 'var(--lime)' : 'var(--border)'}`,
-              background: sessionType === val ? 'rgba(200,241,53,.08)' : 'var(--s2)',
+              background: sessionType === val ? 'rgba(46,138,255,.08)' : 'var(--s2)',
               color: sessionType === val ? 'var(--lime)' : 'var(--t2)',
             }}>
               <span>{icon}</span>{lbl}
@@ -244,7 +244,7 @@ const BookingPanel = ({ trainer, avail, isMobile, onBook }) => {
                   padding:'8px 4px', borderRadius:'var(--r-sm)', cursor:'pointer',
                   fontFamily:'var(--font-body)', fontSize:13, transition:'all .12s',
                   border: `1.5px solid ${isActive ? 'var(--lime)' : 'var(--border)'}`,
-                  background: isActive ? 'rgba(200,241,53,.1)' : 'var(--s2)',
+                  background: isActive ? 'rgba(46,138,255,.1)' : 'var(--s2)',
                   fontWeight: isActive ? 700 : 400,
                   color: isActive ? 'var(--lime)' : 'var(--t1)',
                 }}>
@@ -270,7 +270,7 @@ const BookingPanel = ({ trainer, avail, isMobile, onBook }) => {
       {/* Summary */}
       {selectedSlot && bookDate && (
         <div style={{
-          background:'rgba(200,241,53,.05)', border:'1px solid rgba(200,241,53,.12)',
+          background:'rgba(46,138,255,.05)', border:'1px solid rgba(46,138,255,.12)',
           borderRadius:'var(--r-md)', padding:'10px 14px', marginBottom:14,
         }}>
           <div style={{ display:'flex', justifyContent:'space-between', fontSize:13, marginBottom:4 }}>
@@ -331,7 +331,7 @@ const NoTrainerAssigned = () => (
         <div key={num} style={{ display:'flex', gap:12, marginBottom:14, alignItems:'flex-start' }}>
           <div style={{
             width:28, height:28, borderRadius:'50%',
-            background:'rgba(200,241,53,0.15)', color:'var(--neon-lime)',
+            background:'rgba(46,138,255,0.15)', color:'var(--neon-lime)',
             fontWeight:800, fontSize:13, flexShrink:0,
             display:'flex', alignItems:'center', justifyContent:'center',
           }}>{num}</div>

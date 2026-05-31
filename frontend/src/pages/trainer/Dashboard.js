@@ -37,7 +37,6 @@ export default function TrainerDashboard() {
   const upcoming    = confirmed.filter(b => new Date(b.sessionDate) >= new Date()).slice(0, 5);
   const totalEarn   = completed.reduce((s,b) => s + (b.amount||0), 0);
 
-  const now = new Date();
   const weeklyChart = Array.from({ length:7 }, (_,i) => {
     const d = new Date(); d.setDate(d.getDate() - (6-i)); d.setHours(0,0,0,0);
     const end = new Date(d); end.setHours(23,59,59,999);
@@ -122,7 +121,7 @@ export default function TrainerDashboard() {
         <div className="card">
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:14 }}>
             <h3 style={{ fontSize:15, fontWeight:700 }}>Pending Requests</h3>
-            {pending.length > 0 && <Link to="/trainer/bookings" style={{ fontSize:12, color:'var(--lime)' }}>View all →</Link>}
+            {pending.length > 0 && <Link to="/trainer/bookings" style={{ fontSize:12, color:'var(--orange)' }}>View all →</Link>}
           </div>
           {isLoading ? Array(3).fill(0).map((_,i) => (
             <div key={i} className="skeleton-row">
@@ -141,7 +140,7 @@ export default function TrainerDashboard() {
             <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
               {pending.slice(0,4).map(b => (
                 <div key={b.id} style={{ display:'flex', alignItems:'center', gap:10 }}>
-                  <div className="avatar-placeholder" style={{ width:36, height:36, fontSize:14, background:'rgba(200,241,53,.1)', color:'var(--lime)', flexShrink:0 }}>{b.user?.name?.[0]}</div>
+                  <div className="avatar-placeholder" style={{ width:36, height:36, fontSize:14, background:'rgba(46,138,255,.1)', color:'var(--lime)', flexShrink:0 }}>{b.user?.name?.[0]}</div>
                   <div style={{ flex:1, minWidth:0 }}>
                     <div style={{ fontWeight:600, fontSize:13 }}>{b.user?.name}</div>
                     <div style={{ fontSize:12, color:'var(--t3)' }}>{new Date(b.sessionDate).toLocaleDateString('en-IN',{month:'short',day:'numeric'})} · {b.startTime}</div>
@@ -159,12 +158,12 @@ export default function TrainerDashboard() {
         <div className="card">
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:14 }}>
             <h3 style={{ fontSize:15, fontWeight:700 }}>Upcoming Sessions</h3>
-            <Link to="/trainer/bookings" style={{ fontSize:12, color:'var(--lime)' }}>View all →</Link>
+            <Link to="/trainer/bookings" style={{ fontSize:12, color:'var(--orange)' }}>View all →</Link>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
             {upcoming.map(b => (
               <div key={b.id} style={{ display:'flex', alignItems:'center', gap:12, padding:'10px 12px', background:'var(--s2)', borderRadius:'var(--r-md)' }}>
-                <div className="avatar-placeholder" style={{ width:38, height:38, fontSize:15, background:'rgba(255,95,31,.12)', color:'var(--orange)', flexShrink:0 }}>{b.user?.name?.[0]}</div>
+                <div className="avatar-placeholder" style={{ width:38, height:38, fontSize:15, background:'rgba(91,168,255,.12)', color:'var(--orange)', flexShrink:0 }}>{b.user?.name?.[0]}</div>
                 <div style={{ flex:1, minWidth:0 }}>
                   <div style={{ fontWeight:600, fontSize:13 }}>{b.user?.name}</div>
                   <div style={{ fontSize:12, color:'var(--t3)' }}>
@@ -174,7 +173,7 @@ export default function TrainerDashboard() {
                 <div style={{ display:'flex', alignItems:'center', gap:8 }}>
                   {b.sessionType === 'online_video' && b.status === 'confirmed' && (
                     <button className="btn btn-sm btn-ghost" 
-                      style={{ color:'var(--lime)', border:'1px solid rgba(200,241,53,0.3)', padding:'4px 8px', fontSize:11 }}
+                      style={{ color:'var(--lime)', border:'1px solid rgba(46,138,255,0.3)', padding:'4px 8px', fontSize:11 }}
                       onClick={() => setActiveCall({ bookingId: b.id, displayName: user?.name })}>
                       📹 Join
                     </button>

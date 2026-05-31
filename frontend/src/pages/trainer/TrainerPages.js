@@ -34,7 +34,7 @@ export const TrainerClients = () => {
           {clients.map((c,i)=>(
             <div key={c.id||c._id} className="card card-hover" style={{animation:`fadeIn .4s ease ${i*.06}s both`}}>
               <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:14}}>
-                <div className="avatar-placeholder" style={{width:46,height:46,fontSize:18,background:'rgba(255,95,31,.12)',color:'var(--orange)',flexShrink:0}}>{c.name?.[0]}</div>
+                <div className="avatar-placeholder" style={{width:46,height:46,fontSize:18,background:'rgba(91,168,255,.12)',color:'var(--orange)',flexShrink:0}}>{c.name?.[0]}</div>
                 <div><div style={{fontWeight:600,fontSize:14}}>{c.name}</div><div style={{fontSize:12,color:'var(--t3)'}}>{c.email}</div><div style={{fontSize:12,color:'var(--t2)',marginTop:2,textTransform:'capitalize'}}>{(c.fitnessGoal||'').replace(/_/g,' ')} · {c.fitnessLevel}</div></div>
               </div>
               <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:6,marginBottom:12}}>
@@ -142,8 +142,8 @@ export const TrainerSchedule = () => {
             <div key={day.day} style={{
               flexShrink:0, minWidth:58, padding:'8px 6px',
               borderRadius:'var(--r-md)', textAlign:'center',
-              background: hasSlots ? 'rgba(255,95,31,.08)' : 'var(--s2)',
-              border: `1.5px solid ${hasSlots ? 'rgba(255,95,31,.3)' : 'var(--border)'}`,
+              background: hasSlots ? 'rgba(91,168,255,.08)' : 'var(--s2)',
+              border: `1.5px solid ${hasSlots ? 'rgba(91,168,255,.3)' : 'var(--border)'}`,
             }}>
               <div style={{ fontSize:9, fontWeight:700, textTransform:'uppercase', letterSpacing:'.05em', color: hasSlots ? 'var(--orange)' : 'var(--t3)', marginBottom:2 }}>
                 {next.toLocaleDateString('en-IN', { weekday:'short' })}
@@ -230,7 +230,7 @@ export const TrainerBookings = () => {
             <div key={b.id||b._id} className="card">
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap',gap:10}}>
                 <div style={{display:'flex',alignItems:'center',gap:12}}>
-                  <div className="avatar-placeholder" style={{width:42,height:42,fontSize:16,background:'rgba(200,241,53,.1)',color:'var(--lime)',flexShrink:0}}>{b.user?.name?.[0]}</div>
+                  <div className="avatar-placeholder" style={{width:42,height:42,fontSize:16,background:'rgba(46,138,255,.1)',color:'var(--lime)',flexShrink:0}}>{b.user?.name?.[0]}</div>
                   <div>
                     <div style={{fontWeight:700,fontSize:14}}>{b.user?.name}</div>
                     <div style={{fontSize:12,color:'var(--t3)'}}>{b.user?.email}</div>
@@ -253,7 +253,7 @@ export const TrainerBookings = () => {
                 <div style={{marginTop:12,paddingTop:12,borderTop:'1px solid var(--border)',display:'flex',gap:8,flexWrap:'wrap'}}>
                   {b.sessionType === 'online_video' && (
                     <button className="btn btn-sm"
-                      style={{ background:'rgba(200,241,53,0.12)', border:'1.5px solid rgba(200,241,53,0.3)', color:'var(--lime)', fontWeight:700, padding:'6px 14px' }}
+                      style={{ background:'rgba(46,138,255,0.12)', border:'1.5px solid rgba(46,138,255,0.3)', color:'var(--lime)', fontWeight:700, padding:'6px 14px' }}
                       onClick={() => setActiveCall({ bookingId: b.id || b._id, displayName: user?.name })}>
                       📹 Join Video Call
                     </button>
@@ -433,7 +433,7 @@ export const TrainerNutrition = () => {
             </div>
             {detailedMode&&(<>
               {meals.some(m=>m.name)&&(
-                <div style={{ display:'flex', gap:10, flexWrap:'wrap', padding:'6px 10px', background:'rgba(255,95,31,.08)', borderRadius:6, marginBottom:10, fontSize:12 }}>
+                <div style={{ display:'flex', gap:10, flexWrap:'wrap', padding:'6px 10px', background:'rgba(91,168,255,.08)', borderRadius:6, marginBottom:10, fontSize:12 }}>
                   <span style={{ color:'var(--orange)', fontWeight:700 }}>Total: {mealTotals.cal} kcal</span>
                   <span style={{ color:'var(--lime)' }}>P:{mealTotals.prot}g</span>
                   <span style={{ color:'var(--info)' }}>C:{mealTotals.carbs}g</span>
@@ -566,7 +566,7 @@ export const TrainerProfile = () => {
       <PH title="My" hl="Profile" sub="Update your trainer information"/>
       <div className="card" style={{marginBottom:14}}>
         <div style={{display:'flex',alignItems:'center',gap:14,marginBottom:20,paddingBottom:16,borderBottom:'1px solid var(--border)'}}>
-          <div className="avatar-placeholder" style={{width:56,height:56,fontSize:22,background:'rgba(255,95,31,.12)',color:'var(--orange)',flexShrink:0}}>{user?.name?.[0]}</div>
+          <div className="avatar-placeholder" style={{width:56,height:56,fontSize:22,background:'rgba(91,168,255,.12)',color:'var(--orange)',flexShrink:0}}>{user?.name?.[0]}</div>
           <div><div style={{fontWeight:700,fontSize:17}}>{user?.name}</div><div style={{fontSize:13,color:'var(--t2)'}}>{user?.email}</div>
             <div style={{display:'flex',gap:6,marginTop:6,flexWrap:'wrap'}}>
               <span className={`badge ${user?.isApproved?'badge-success':'badge-warning'}`}>{user?.isApproved?'✓ Approved':'Pending'}</span>
@@ -622,7 +622,7 @@ export const TrainerChat = () => {
         <div className="chat-sidebar" style={{width:220,flexShrink:0,display:'flex',flexDirection:'column',gap:6,overflowY:'auto'}}>
           {loading?<div className="spinner" style={{margin:'20px auto'}}/>:
            convos.length>0?convos.map(c=>{const a=(active?.id||active?._id)===(c.id||c._id);return(
-            <div key={c.id||c._id} onClick={()=>setActive(c)} style={{padding:'11px 12px',borderRadius:'var(--r-md)',background:a?'rgba(255,95,31,.08)':'var(--s1)',border:`1px solid ${a?'var(--orange)':'var(--border)'}`,cursor:'pointer',transition:'all .13s'}}>
+            <div key={c.id||c._id} onClick={()=>setActive(c)} style={{padding:'11px 12px',borderRadius:'var(--r-md)',background:a?'rgba(91,168,255,.08)':'var(--s1)',border:`1px solid ${a?'var(--orange)':'var(--border)'}`,cursor:'pointer',transition:'all .13s'}}>
               <div style={{fontWeight:600,fontSize:13}}>{otherName(c)}</div>
               <div style={{fontSize:12,color:'var(--t3)',marginTop:2,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{c.lastMessage?.content||'No messages'}</div>
             </div>

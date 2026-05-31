@@ -356,6 +356,12 @@ const ConsultationRequest = sequelize.define('ConsultationRequest', {
   primaryGoal:      DataTypes.STRING,
   currentChallenges:DataTypes.TEXT,
   fitnessLevel:     DataTypes.STRING,
+  // ── Funnel metrics (captured by the multi-step free-consultation flow) ──
+  currentWeight:    DataTypes.FLOAT,    // kg
+  targetWeight:     DataTypes.FLOAT,    // kg
+  heightCm:         DataTypes.FLOAT,    // cm
+  timeframeMonths:  DataTypes.INTEGER,  // desired timeline
+  activityLevel:    DataTypes.STRING,   // sedentary | light | moderate | active
   budgetSegment:    DataTypes.STRING,
   deliveryPreference:DataTypes.STRING,
   status:           { type: DataTypes.STRING, defaultValue: 'pending' }, // pending | reviewed | assigned | closed

@@ -37,7 +37,7 @@ const DELIVERY_MODES = [
   { value:'trainer_at_home',label:'Trainer at My Home',    icon:'🏠', desc:'Certified trainer comes to your doorstep' },
   { value:'mpower_gym',     label:'At MPower Gym',         icon:'🏋️', desc:'Train at our fully equipped MPower facility' },
   { value:'partner_gym',    label:'At My Existing Gym',    icon:'🤝', desc:'Trainer meets you at your current gym' },
-  { value:'self_guided',    label:'Self-Guided via App',   icon:'📱', desc:'Follow personalised plans at your own pace' },
+  { value:'self_guided',    label:'Self-Guided Online',    icon:'💻', desc:'Follow personalised plans at your own pace' },
 ];
 
 const BUDGET_SEGMENTS = [
@@ -46,7 +46,7 @@ const BUDGET_SEGMENTS = [
     label:'Essential',
     price:'₹499–999 /month',
     icon:'💚',
-    features:['App-based workout plans','Nutrition guidance','Community access','Progress tracking'],
+    features:['Guided workout plans','Nutrition guidance','Community access','Progress tracking'],
   },
   {
     value:'mid',
@@ -59,7 +59,7 @@ const BUDGET_SEGMENTS = [
   {
     value:'premium',
     label:'Elite',
-    price:'₹4,999+ /month',
+    price:'₹2,999+ /month',
     icon:'👑',
     features:['Everything in Pro','Daily trainer check-ins','Home/gym visit sessions','Dietitian consultation','Lab-result analysis','Dedicated health coach'],
   },
@@ -79,9 +79,9 @@ const Chip = ({ selected, onClick, icon, label, desc, badge }) => (
   <button type="button" onClick={onClick} style={{
     padding:'12px 14px', borderRadius:10, textAlign:'left', cursor:'pointer',
     transition:'all 0.2s', display:'flex', alignItems:'flex-start', gap:10, position:'relative',
-    background: selected ? 'rgba(200,241,53,0.1)' : 'var(--surface-2)',
-    border: `1px solid ${selected ? 'rgba(200,241,53,0.45)' : 'var(--border)'}`,
-    boxShadow: selected ? '0 0 0 1px rgba(200,241,53,0.2)' : 'none',
+    background: selected ? 'rgba(46,138,255,0.1)' : 'var(--surface-2)',
+    border: `1px solid ${selected ? 'rgba(46,138,255,0.45)' : 'var(--border)'}`,
+    boxShadow: selected ? '0 0 0 1px rgba(46,138,255,0.2)' : 'none',
   }}>
     {badge && (
       <span style={{ position:'absolute', top:-8, right:10, background:'var(--electric-orange)', color:'#000',
@@ -141,9 +141,9 @@ const Onboarding = () => {
   return (
     <div style={{ minHeight:'100vh', background:'var(--deep-black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px 16px' }}>
       <div style={{ position:'absolute', top:'10%', right:'8%', width:400, height:400,
-        background:'radial-gradient(circle, rgba(200,241,53,0.05) 0%, transparent 65%)', pointerEvents:'none' }}/>
+        background:'radial-gradient(circle, rgba(46,138,255,0.05) 0%, transparent 65%)', pointerEvents:'none' }}/>
       <div style={{ position:'absolute', bottom:'15%', left:'5%', width:300, height:300,
-        background:'radial-gradient(circle, rgba(255,95,31,0.04) 0%, transparent 65%)', pointerEvents:'none' }}/>
+        background:'radial-gradient(circle, rgba(91,168,255,0.04) 0%, transparent 65%)', pointerEvents:'none' }}/>
 
       <div style={{ width:'100%', maxWidth:600, animation:'slideUp 0.45s ease forwards' }}>
         {/* Header */}
@@ -156,7 +156,7 @@ const Onboarding = () => {
         <div style={{ display:'flex', gap:5, marginBottom:28 }}>
           {STEPS.map((_, i) => (
             <div key={i} style={{ flex:1, height:3, borderRadius:2, transition:'background 0.35s',
-              background: i < step ? 'var(--neon-lime)' : i === step ? 'rgba(200,241,53,0.6)' : 'var(--surface-3)' }}/>
+              background: i < step ? 'var(--neon-lime)' : i === step ? 'rgba(46,138,255,0.6)' : 'var(--surface-3)' }}/>
           ))}
         </div>
 
@@ -183,8 +183,8 @@ const Onboarding = () => {
                 <button key={l.value} type="button" onClick={() => setData(d => ({...d, fitnessLevel:l.value}))} style={{
                   padding:'18px 20px', borderRadius:10, textAlign:'left', cursor:'pointer', transition:'all 0.2s',
                   display:'flex', alignItems:'center', gap:16,
-                  background: data.fitnessLevel === l.value ? 'rgba(200,241,53,0.1)' : 'var(--surface-2)',
-                  border: `1px solid ${data.fitnessLevel === l.value ? 'rgba(200,241,53,0.4)' : 'var(--border)'}`,
+                  background: data.fitnessLevel === l.value ? 'rgba(46,138,255,0.1)' : 'var(--surface-2)',
+                  border: `1px solid ${data.fitnessLevel === l.value ? 'rgba(46,138,255,0.4)' : 'var(--border)'}`,
                 }}>
                   <span style={{ fontSize:28, flexShrink:0 }}>{l.icon}</span>
                   <div>
@@ -252,8 +252,8 @@ const Onboarding = () => {
                     icon={c.icon} label={c.label} desc={c.desc}/>
                 ))}
               </div>
-              <div style={{ marginTop:18, padding:'12px 14px', background:'rgba(200,241,53,0.05)',
-                border:'1px solid rgba(200,241,53,0.15)', borderRadius:8, display:'flex', gap:8, alignItems:'flex-start' }}>
+              <div style={{ marginTop:18, padding:'12px 14px', background:'rgba(46,138,255,0.05)',
+                border:'1px solid rgba(46,138,255,0.15)', borderRadius:8, display:'flex', gap:8, alignItems:'flex-start' }}>
                 <span style={{ fontSize:16, flexShrink:0 }}>🔒</span>
                 <p style={{ fontSize:12, color:'var(--text-muted)', lineHeight:1.5, margin:0 }}>
                   This information is used only to personalise your fitness and nutrition recommendations.
@@ -283,8 +283,8 @@ const Onboarding = () => {
                 <button key={b.value} type="button" onClick={() => setData(d => ({...d, budgetSegment:b.value}))} style={{
                   padding:'16px 18px', borderRadius:12, textAlign:'left', cursor:'pointer',
                   transition:'all 0.2s', position:'relative',
-                  background: data.budgetSegment === b.value ? 'rgba(200,241,53,0.08)' : 'var(--surface-2)',
-                  border: `1px solid ${data.budgetSegment === b.value ? 'rgba(200,241,53,0.45)' : 'var(--border)'}`,
+                  background: data.budgetSegment === b.value ? 'rgba(46,138,255,0.08)' : 'var(--surface-2)',
+                  border: `1px solid ${data.budgetSegment === b.value ? 'rgba(46,138,255,0.45)' : 'var(--border)'}`,
                 }}>
                   {b.popular && (
                     <span style={{ position:'absolute', top:-10, right:14, background:'var(--electric-orange)', color:'#000',

@@ -9,12 +9,25 @@ log()  { echo -e "\033[1;32m[mpower]\033[0m $*"; }
 warn() { echo -e "\033[1;33m[mpower]\033[0m $*"; }
 err()  { echo -e "\033[1;31m[mpower]\033[0m $*" >&2; }
 
-[ ! -f "$ROOT/backend/.env"  ] && warn "Copying backend/.env from example" && cp "$ROOT/backend/.env.example"  "$ROOT/backend/.env"
-[ ! -f "$ROOT/frontend/.env" ] && cp "$ROOT/frontend/.env.example" "$ROOT/frontend/.env"
+if [ ! -f "$ROOT/backend/.env" ]; then
+  warn "Copying backend/.env from example"
+  cp "$ROOT/backend/.env.example" "$ROOT/backend/.env"
+fi
 
-install_if_needed() { [ ! -d "$1/node_modules" ] && log "Installing $(basename $1) deps…" && (cd "$1" && npm install); }
+if [ ! -f "$ROOT/frontend/.env" ]; then
+  cp "$ROOT/frontend/.env.example" "$ROOT/frontend/.env"
+fi
+
+install_if_needed() {
+  if [ ! -d "$1/node_modules" ]; then
+    log "Installing $(basename "$1") deps…"
+    (cd "$1" && npm install)
+  fi
+}
 install_if_needed "$ROOT/backend"
-[[ "$MODE" != "backend" && "$MODE" != "seed" ]] && install_if_needed "$ROOT/frontend"
+if [[ "$MODE" != "backend" && "$MODE" != "seed" ]]; then
+  install_if_needed "$ROOT/frontend"
+fi
 
 mkdir -p "$ROOT/backend/data"
 mkdir -p "$ROOT/backend/uploads/"{avatars,workouts,progress}

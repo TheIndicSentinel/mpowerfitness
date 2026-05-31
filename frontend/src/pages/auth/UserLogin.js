@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import useAuthStore from '../../store/authStore';
 import { LogoFull } from '../../components/shared/Logo';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const EyeIcon = ({ open }) => open ? (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -20,9 +21,11 @@ const UserLogin = () => {
   const [showPass, setShowPass] = useState(false);
   const { loginUser, isLoading } = useAuthStore();
   const navigate = useNavigate();
+  useDocumentTitle('Login', 'Log in to your MPower Fitness account to access workouts, trainers, nutrition plans and progress tracking.');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.email.trim() || !form.password) { toast.error('Please enter your email and password'); return; }
     const result = await loginUser(form.email, form.password);
     if (result.success) {
       toast.success(`Welcome back, ${result.user.name}!`);
@@ -34,8 +37,8 @@ const UserLogin = () => {
 
   return (
     <div style={{ minHeight:'100vh', background:'var(--deep-black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
-      <div style={{ position:'absolute', top:'15%', right:'10%', width:500, height:500, background:'radial-gradient(circle, rgba(200,241,53,0.06) 0%, transparent 65%)', pointerEvents:'none' }}/>
-      <div style={{ position:'absolute', bottom:'15%', left:'5%', width:350, height:350, background:'radial-gradient(circle, rgba(255,95,31,0.05) 0%, transparent 65%)', pointerEvents:'none' }}/>
+      <div style={{ position:'absolute', top:'15%', right:'10%', width:500, height:500, background:'radial-gradient(circle, rgba(46,138,255,0.06) 0%, transparent 65%)', pointerEvents:'none' }}/>
+      <div style={{ position:'absolute', bottom:'15%', left:'5%', width:350, height:350, background:'radial-gradient(circle, rgba(91,168,255,0.05) 0%, transparent 65%)', pointerEvents:'none' }}/>
 
       <div style={{ width:'100%', maxWidth:420, animation:'slideUp 0.45s ease forwards' }}>
         <div style={{ display:'flex', justifyContent:'center', marginBottom:36 }}>

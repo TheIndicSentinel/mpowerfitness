@@ -36,7 +36,7 @@ const CollapseIcon = ({ collapsed }) => (
 );
 
 /* ── AppLayout ───────────────────────────────────────────────────────── */
-const AppLayout = ({ SidebarComp, accent = '200,241,53' }) => {
+const AppLayout = ({ SidebarComp, accent = '99,102,241' }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -164,8 +164,8 @@ const AppLayout = ({ SidebarComp, accent = '200,241,53' }) => {
   );
 };
 
-export const UserLayout    = () => <AppLayout SidebarComp={UserSidebar}    accent="200,241,53"/>;
-export const TrainerLayout = () => <AppLayout SidebarComp={TrainerSidebar} accent="255,95,31"/>;
+export const UserLayout    = () => <AppLayout SidebarComp={UserSidebar}    accent="99,102,241"/>;
+export const TrainerLayout = () => <AppLayout SidebarComp={TrainerSidebar} accent="139,92,246"/>;
 export const AdminLayout   = () => <AppLayout SidebarComp={AdminSidebar}   accent="78,159,255"/>;
 
 export default UserLayout;

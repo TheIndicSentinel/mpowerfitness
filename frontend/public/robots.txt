@@ -1,0 +1,15 @@
+# MPower Fitness — https://mpowerfitness.in
+User-agent: *
+Allow: /$
+Allow: /info/
+Allow: /login
+Allow: /register
+Allow: /trainer/register
+
+# Keep private app areas and auth-gated dashboards out of the index
+Disallow: /user/
+Disallow: /admin
+Disallow: /trainer/dashboard
+Disallow: /onboarding
+
+Sitemap: https://mpowerfitness.in/sitemap.xml

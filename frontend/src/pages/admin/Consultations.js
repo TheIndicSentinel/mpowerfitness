@@ -5,8 +5,8 @@ import api from '../../utils/api';
 
 const STATUS_COLORS = {
   pending:    { bg:'rgba(255,193,7,0.15)',  text:'#FFC107', label:'Pending' },
-  reviewing:  { bg:'rgba(78,159,255,0.15)', text:'#4E9FFF', label:'Reviewing' },
-  assigned:   { bg:'rgba(200,241,53,0.15)', text:'var(--neon-lime)', label:'Assigned' },
+  reviewing:  { bg:'rgba(78,159,255,0.15)', text:'#5BA8FF', label:'Reviewing' },
+  assigned:   { bg:'rgba(46,138,255,0.15)', text:'var(--neon-lime)', label:'Assigned' },
   completed:  { bg:'rgba(34,217,122,0.15)', text:'#22D97A', label:'Completed' },
   cancelled:  { bg:'rgba(255,77,77,0.15)',  text:'#FF4D4D', label:'Cancelled' },
 };
@@ -82,8 +82,8 @@ export default function AdminConsultations() {
           <button key={val} type="button" onClick={() => { setStatusFilter(val); setPage(1); }} style={{
             padding:'7px 16px', borderRadius:20, cursor:'pointer', fontSize:13, fontWeight:600,
             fontFamily:'var(--font-body)',
-            background: statusFilter === val ? 'rgba(200,241,53,0.15)' : 'var(--surface-2)',
-            border: `1px solid ${statusFilter === val ? 'rgba(200,241,53,0.45)' : 'var(--border)'}`,
+            background: statusFilter === val ? 'rgba(46,138,255,0.15)' : 'var(--surface-2)',
+            border: `1px solid ${statusFilter === val ? 'rgba(46,138,255,0.45)' : 'var(--border)'}`,
             color: statusFilter === val ? 'var(--neon-lime)' : 'var(--text-muted)',
           }}>
             {lbl} {val === '' && total > 0 ? `(${total})` : ''}
@@ -107,7 +107,7 @@ export default function AdminConsultations() {
               <div key={req.id} style={{ background:'var(--surface)', border:'1px solid var(--border)',
                 borderRadius:12, padding:'18px 20px', cursor:'pointer', transition:'border-color 0.2s' }}
                 onClick={() => openDetail(req)}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(200,241,53,0.3)'}
+                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(46,138,255,0.3)'}
                 onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--border)'}
               >
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start',
@@ -216,6 +216,40 @@ export default function AdminConsultations() {
                   letterSpacing:'0.07em', marginBottom:6, fontWeight:700 }}>Primary Goal</div>
                 <div style={{ fontSize:14, color:'var(--neon-lime)', fontWeight:600 }}>{selected.primaryGoal}</div>
               </div>
+
+              {(selected.currentWeight || selected.targetWeight) && (
+                <div style={{ marginBottom:14, padding:'12px 14px', background:'rgba(91,168,255,0.07)',
+                  border:'1px solid rgba(91,168,255,0.18)', borderRadius:10,
+                  display:'flex', alignItems:'center', gap:14, flexWrap:'wrap' }}>
+                  <div>
+                    <div style={{ fontSize:11, color:'var(--text-muted)', fontWeight:700 }}>NOW</div>
+                    <div style={{ fontSize:18, fontWeight:800 }}>{selected.currentWeight || '—'} kg</div>
+                  </div>
+                  <div style={{ fontSize:18, color:'var(--electric-orange)' }}>→</div>
+                  <div>
+                    <div style={{ fontSize:11, color:'var(--text-muted)', fontWeight:700 }}>TARGET</div>
+                    <div style={{ fontSize:18, fontWeight:800, color:'var(--electric-orange)' }}>{selected.targetWeight || '—'} kg</div>
+                  </div>
+                  {selected.timeframeMonths && (
+                    <div style={{ marginLeft:'auto', textAlign:'right' }}>
+                      <div style={{ fontSize:11, color:'var(--text-muted)', fontWeight:700 }}>TIMELINE</div>
+                      <div style={{ fontSize:14, fontWeight:700 }}>{selected.timeframeMonths} months</div>
+                    </div>
+                  )}
+                  {selected.heightCm && (
+                    <div style={{ textAlign:'right' }}>
+                      <div style={{ fontSize:11, color:'var(--text-muted)', fontWeight:700 }}>HEIGHT</div>
+                      <div style={{ fontSize:14, fontWeight:700 }}>{selected.heightCm} cm</div>
+                    </div>
+                  )}
+                  {selected.activityLevel && (
+                    <div style={{ textAlign:'right' }}>
+                      <div style={{ fontSize:11, color:'var(--text-muted)', fontWeight:700 }}>ACTIVITY</div>
+                      <div style={{ fontSize:14, fontWeight:700, textTransform:'capitalize' }}>{selected.activityLevel}</div>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {selected.healthConditions?.length > 0 && selected.healthConditions[0] !== 'none' && (
                 <div style={{ marginBottom:14 }}>

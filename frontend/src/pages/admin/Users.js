@@ -69,7 +69,7 @@ const AdminUsers = () => {
                 <tr key={u.id || u._id || i}>
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <div style={{ width: 34, height: 34, borderRadius: '50%', background: 'rgba(200,241,53,0.12)', color: 'var(--lime)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, flexShrink: 0 }}>{u.name?.[0]}</div>
+                      <div style={{ width: 34, height: 34, borderRadius: '50%', background: 'rgba(46,138,255,0.12)', color: 'var(--lime)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, flexShrink: 0 }}>{u.name?.[0]}</div>
                       <div>
                         <div style={{ fontWeight: 600, fontSize: 13 }}>{u.name}</div>
                         <div style={{ fontSize: 11, color: 'var(--t3)' }}>{u.email}</div>
@@ -110,7 +110,7 @@ const AdminUsers = () => {
               {trainers.map(t => (
                 <button key={t.id || t._id} className="btn btn-ghost" style={{ justifyContent: 'flex-start', gap: 10 }}
                   onClick={() => assignTrainer(assigning, t.id || t._id)}>
-                  <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'rgba(255,95,31,0.12)', color: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700 }}>{t.name?.[0]}</div>
+                  <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'rgba(91,168,255,0.12)', color: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700 }}>{t.name?.[0]}</div>
                   <div style={{ textAlign: 'left' }}>
                     <div style={{ fontWeight: 600, fontSize: 13 }}>{t.name}</div>
                     <div style={{ fontSize: 11, color: 'var(--t3)' }}>{(t.specializations || []).slice(0,2).join(', ').replace(/_/g,' ')}</div>

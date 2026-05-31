@@ -96,12 +96,12 @@ export default function AdminDashboard() {
         <div className="card">
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:14 }}>
             <h3 style={{ fontSize:15, fontWeight:700 }}>⏳ Pending Trainer Approvals ({pendingTrainers.length})</h3>
-            <Link to="/admin/trainers" style={{ fontSize:12, color:'var(--lime)' }}>View all →</Link>
+            <Link to="/admin/trainers" style={{ fontSize:12, color:'var(--info)' }}>View all →</Link>
           </div>
           <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
             {pendingTrainers.slice(0,5).map(t => (
               <div key={t.id} style={{ display:'flex', alignItems:'center', gap:12, padding:'10px 12px', background:'var(--s2)', borderRadius:'var(--r-md)' }}>
-                <div className="avatar-placeholder" style={{ width:40, height:40, fontSize:16, background:'rgba(255,95,31,.12)', color:'var(--orange)', flexShrink:0 }}>{t.name?.[0]}</div>
+                <div className="avatar-placeholder" style={{ width:40, height:40, fontSize:16, background:'rgba(91,168,255,.12)', color:'var(--orange)', flexShrink:0 }}>{t.name?.[0]}</div>
                 <div style={{ flex:1, minWidth:0 }}>
                   <div style={{ fontWeight:600, fontSize:14 }}>{t.name}</div>
                   <div style={{ fontSize:12, color:'var(--t3)' }}>{t.email} · {t.experience}yr exp</div>

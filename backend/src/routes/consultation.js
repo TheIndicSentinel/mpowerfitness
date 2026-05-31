@@ -26,7 +26,8 @@ const optionalAuth = async (req, res, next) => {
 router.post('/', optionalAuth, async (req, res) => {
   try {
     const { name, email, phone, age, gender, healthConditions, primaryGoal,
-      currentChallenges, fitnessLevel, budgetSegment, deliveryPreference } = req.body;
+      currentChallenges, fitnessLevel, budgetSegment, deliveryPreference,
+      currentWeight, targetWeight, heightCm, timeframeMonths, activityLevel } = req.body;
     if (!name || !email || !primaryGoal) {
       return res.status(400).json({ success: false, message: 'Name, email and goal are required' });
     }
@@ -35,6 +36,11 @@ router.post('/', optionalAuth, async (req, res) => {
       name, email, phone, age, gender,
       healthConditions: healthConditions || [],
       primaryGoal, currentChallenges, fitnessLevel,
+      currentWeight: currentWeight || null,
+      targetWeight: targetWeight || null,
+      heightCm: heightCm || null,
+      timeframeMonths: timeframeMonths || null,
+      activityLevel: activityLevel || null,
       budgetSegment: budgetSegment || 'mid',
       deliveryPreference: deliveryPreference || 'online',
     });

@@ -46,8 +46,8 @@ const SessionCard = ({ booking, onCancel, onJoinCall }) => {
 
   return (
     <div style={{
-      background: today ? 'rgba(200,241,53,0.04)' : 'var(--charcoal)',
-      border: `1px solid ${today ? 'rgba(200,241,53,0.25)' : 'var(--border)'}`,
+      background: today ? 'rgba(46,138,255,0.04)' : 'var(--charcoal)',
+      border: `1px solid ${today ? 'rgba(46,138,255,0.25)' : 'var(--border)'}`,
       borderRadius: 'var(--r-lg)',
       padding: '16px 20px',
       display: 'flex', gap: 14, alignItems: 'flex-start',
@@ -72,7 +72,7 @@ const SessionCard = ({ booking, onCancel, onJoinCall }) => {
             {booking.trainer?.name || 'Trainer Session'}
           </span>
           {today && (
-            <span style={{ background: 'rgba(200,241,53,0.15)', color: 'var(--lime)',
+            <span style={{ background: 'rgba(46,138,255,0.15)', color: 'var(--lime)',
               borderRadius: 4, padding: '1px 7px', fontSize: 10, fontWeight: 700 }}>TODAY</span>
           )}
           <span style={{
@@ -107,7 +107,7 @@ const SessionCard = ({ booking, onCancel, onJoinCall }) => {
           <button
             className="btn btn-sm"
             style={{ fontSize: 11, fontWeight: 700,
-              background: 'rgba(200,241,53,0.15)', border: '1.5px solid rgba(200,241,53,0.4)',
+              background: 'rgba(46,138,255,0.15)', border: '1.5px solid rgba(46,138,255,0.4)',
               color: 'var(--lime)' }}
             onClick={() => onJoinCall(booking)}
           >
@@ -202,7 +202,7 @@ export default function UserSessions() {
 
       {/* Today highlight */}
       {today.length > 0 && (
-        <div style={{ background:'rgba(200,241,53,0.07)', border:'1px solid rgba(200,241,53,0.2)',
+        <div style={{ background:'rgba(46,138,255,0.07)', border:'1px solid rgba(46,138,255,0.2)',
           borderRadius:'var(--r-lg)', padding:'14px 18px', marginBottom:20,
           display:'flex', alignItems:'center', gap:12 }}>
           <span style={{ fontSize:22 }}>🏋️</span>

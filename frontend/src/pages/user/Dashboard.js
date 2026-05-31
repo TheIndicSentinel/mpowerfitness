@@ -24,7 +24,7 @@ const CONDITION_TIPS = {
     ],
   },
   diabetes: {
-    color:'#4E9FFF', icon:'💉', title:'Diabetes Management',
+    color:'#5BA8FF', icon:'💉', title:'Diabetes Management',
     tips:[
       'A 10–15 min walk after meals reduces postprandial glucose by 22% (ADA 2022)',
       'Resistance training improves HbA1c more than cardio alone — aim for 2× per week (ADA guidelines)',
@@ -133,7 +133,7 @@ export default function UserDashboard() {
         </div>
         <div style={{ display:'flex', gap:10, alignItems:'center', flexWrap:'wrap' }}>
           {!isLoading && u.streak > 0 && (
-            <div style={{ background:'rgba(255,95,31,.1)', border:'1px solid rgba(255,95,31,.25)', borderRadius:'var(--r-md)', padding:'8px 14px', display:'flex', alignItems:'center', gap:8 }}>
+            <div style={{ background:'rgba(91,168,255,.1)', border:'1px solid rgba(91,168,255,.25)', borderRadius:'var(--r-md)', padding:'8px 14px', display:'flex', alignItems:'center', gap:8 }}>
               <span style={{ fontSize:22 }}>🔥</span>
               <div>
                 <div style={{ fontWeight:800, fontSize:20, color:'var(--orange)', lineHeight:1 }}>{u.streak}</div>
@@ -188,7 +188,7 @@ export default function UserDashboard() {
 
       {/* Free consultation CTA — check persisted store (authUser) first */}
       {!isLoading && !authUser?.consultationDone && !u.consultationDone && (
-        <div style={{ background:'linear-gradient(135deg,rgba(200,241,53,0.06),rgba(255,95,31,0.05))',
+        <div style={{ background:'linear-gradient(135deg,rgba(46,138,255,0.06),rgba(91,168,255,0.05))',
           border:'1px solid var(--border)', borderRadius:12, padding:'16px 20px',
           display:'flex', justifyContent:'space-between', alignItems:'center',
           flexWrap:'wrap', gap:12, marginBottom:16 }}>
@@ -279,10 +279,10 @@ export default function UserDashboard() {
 
       {/* Assigned Trainer */}
       {!isLoading && trainer && (
-        <div className="card" style={{ marginBottom:16, borderColor:'rgba(255,95,31,.2)' }}>
+        <div className="card" style={{ marginBottom:16, borderColor:'rgba(91,168,255,.2)' }}>
           <div style={{ fontWeight:700, fontSize:14, marginBottom:14, color:'var(--orange)' }}>🏋️ Your Trainer</div>
           <div style={{ display:'flex', alignItems:'center', gap:14, flexWrap:'wrap' }}>
-            <div className="avatar-placeholder" style={{ width:50, height:50, fontSize:20, background:'rgba(255,95,31,.12)', color:'var(--orange)' }}>{trainer.name?.[0]}</div>
+            <div className="avatar-placeholder" style={{ width:50, height:50, fontSize:20, background:'rgba(91,168,255,.12)', color:'var(--orange)' }}>{trainer.name?.[0]}</div>
             <div style={{ flex:1, minWidth:0 }}>
               <div style={{ fontWeight:700, fontSize:15 }}>{trainer.name}</div>
               <div style={{ fontSize:12, color:'var(--warning)' }}>⭐ {(trainer.rating||0).toFixed(1)}</div>
@@ -328,7 +328,8 @@ export default function UserDashboard() {
         <Link to="/user/community" className="btn btn-ghost btn-sm">Explore →</Link>
       </div>
 
-      {showConsult && !authUser?.consultationDone && (
+      {/* Keep mounted through the success screen; the CTA above already hides once done */}
+      {showConsult && (
         <ConsultationModal onClose={() => setShowConsult(false)}/>
       )}
     </div>

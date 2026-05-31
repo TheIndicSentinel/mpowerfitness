@@ -2,29 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { LogoFull } from '../../components/shared/Logo';
 import Footer from '../../components/shared/Footer';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
-const InfoLayout = ({ children }) => (
-  <div style={{ minHeight:'100vh', background:'var(--black)', display:'flex', flexDirection:'column' }}>
-    <header style={{ background:'var(--carbon)', borderBottom:'1px solid var(--border)', padding:'0 clamp(16px,4vw,40px)', height:72, display:'flex', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:100 }}>
-      <LogoFull height={50} linkTo="/"/>
-      <div style={{ display:'flex', gap:12 }}>
-        <Link to="/login"    className="btn btn-ghost btn-sm">Sign In</Link>
-        <Link to="/register" className="btn btn-primary btn-sm">Get Started</Link>
-      </div>
-    </header>
-    <main style={{ flex:1, padding:'clamp(32px,5vw,64px) clamp(16px,4vw,40px)', maxWidth:960, margin:'0 auto', width:'100%' }}>
-      {children}
-    </main>
-    <Footer variant="landing"/>
-  </div>
-);
+const InfoLayout = ({ title, description, children }) => {
+  useDocumentTitle(title, description);
+  return (
+    <div style={{ minHeight:'100vh', background:'var(--black)', display:'flex', flexDirection:'column' }}>
+      <header style={{ background:'var(--carbon)', borderBottom:'1px solid var(--border)', padding:'0 clamp(16px,4vw,40px)', height:72, display:'flex', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:100 }}>
+        <LogoFull height={50} linkTo="/"/>
+        <div style={{ display:'flex', gap:12 }}>
+          <Link to="/login" className="btn btn-primary btn-sm">Login</Link>
+        </div>
+      </header>
+      <main style={{ flex:1, padding:'clamp(32px,5vw,64px) clamp(16px,4vw,40px)', maxWidth:960, margin:'0 auto', width:'100%' }}>
+        {children}
+      </main>
+      <Footer variant="landing"/>
+    </div>
+  );
+};
 
 export { InfoLayout };
 
 const AboutPage = () => (
-  <InfoLayout>
+  <InfoLayout title="About Us" description="Mpower Fitness makes world-class fitness coaching accessible to every Indian — certified trainers, smart technology, and personalised nutrition for real, lasting results.">
     <div style={{ marginBottom:48 }}>
-      <div style={{ display:'inline-block', background:'rgba(200,241,53,.1)', border:'1px solid rgba(200,241,53,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>About Us</div>
+      <div style={{ display:'inline-block', background:'rgba(46,138,255,.1)', border:'1px solid rgba(46,138,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>About Us</div>
       <h1 style={{ fontSize:'clamp(28px,5vw,48px)', fontWeight:800, marginBottom:16, lineHeight:1.2 }}>
         Transforming Lives Through<br/><span style={{ color:'var(--lime)' }}>Fitness & Technology</span>
       </h1>
@@ -35,7 +38,7 @@ const AboutPage = () => (
 
     {/* Stats */}
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))', gap:16, marginBottom:56 }}>
-      {[['50K+','Active Members'],['200+','Certified Trainers'],['₹0','Hidden Fees'],['4.8★','Average Rating']].map(([val,lbl]) => (
+      {[['5K+','Active Members'],['₹499','Plans Start From'],['₹0','Hidden Fees'],['30K+','Workouts Completed']].map(([val,lbl]) => (
         <div key={lbl} className="card" style={{ textAlign:'center', padding:'24px 16px' }}>
           <div style={{ fontSize:32, fontWeight:800, color:'var(--lime)', marginBottom:6 }}>{val}</div>
           <div style={{ fontSize:13, color:'var(--t2)' }}>{lbl}</div>
@@ -88,9 +91,9 @@ const AboutPage = () => (
 
     <div style={{ textAlign:'center', padding:'32px 0' }}>
       <h2 style={{ fontSize:24, fontWeight:700, marginBottom:12 }}>Ready to start your journey?</h2>
-      <p style={{ color:'var(--t2)', marginBottom:24 }}>Join 50,000+ members transforming their lives with Mpower Fitness.</p>
+      <p style={{ color:'var(--t2)', marginBottom:24 }}>Join 5,000+ members transforming their lives with Mpower Fitness.</p>
       <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
-        <Link to="/register" className="btn btn-primary btn-lg">Get Started Free</Link>
+        <Link to="/register" className="btn btn-primary btn-lg">Get Started</Link>
         <Link to="/trainer/register" className="btn btn-ghost btn-lg">Become a Trainer</Link>
       </div>
     </div>

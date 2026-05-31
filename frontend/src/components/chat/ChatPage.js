@@ -14,7 +14,7 @@ const fmtTime = (d) => {
   return date.toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
 };
 
-const Avatar = ({ name, size = 38, color = 'var(--lime)', bg = 'rgba(200,241,53,0.15)' }) => (
+const Avatar = ({ name, size = 38, color = 'var(--lime)', bg = 'rgba(46,138,255,0.15)' }) => (
   <div style={{ width: size, height: size, borderRadius: '50%', background: bg, color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: size * 0.4, flexShrink: 0 }}>
     {name?.[0]?.toUpperCase() || '?'}
   </div>
@@ -33,7 +33,7 @@ const ConvoItem = ({ convo, active, onClick, currentUserId }) => {
   const other = (convo.participants || []).find(p => p.participantId !== currentUserId);
   const unread = (convo.unreadCounts || {})[currentUserId] || 0;
   return (
-    <div onClick={onClick} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 16px', cursor: 'pointer', background: active ? 'rgba(200,241,53,0.07)' : 'transparent', borderBottom: '1px solid var(--border)', transition: 'background 0.15s', borderLeft: active ? '3px solid var(--lime)' : '3px solid transparent' }}>
+    <div onClick={onClick} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 16px', cursor: 'pointer', background: active ? 'rgba(46,138,255,0.07)' : 'transparent', borderBottom: '1px solid var(--border)', transition: 'background 0.15s', borderLeft: active ? '3px solid var(--lime)' : '3px solid transparent' }}>
       <Avatar name={other?.name} />
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
@@ -45,7 +45,7 @@ const ConvoItem = ({ convo, active, onClick, currentUserId }) => {
             {convo.lastMessage?.content || 'No messages yet'}
           </span>
           {unread > 0 && (
-            <span style={{ background: 'var(--lime)', color: '#060608', borderRadius: '50%', fontSize: 11, fontWeight: 800, width: 18, height: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{unread}</span>
+            <span style={{ background: 'var(--lime)', color: '#fff', borderRadius: '50%', fontSize: 11, fontWeight: 800, width: 18, height: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{unread}</span>
           )}
         </div>
       </div>
@@ -59,7 +59,7 @@ const Bubble = ({ msg, isMine }) => (
     <div style={{
       maxWidth: '72%', padding: '9px 13px', borderRadius: isMine ? '14px 14px 4px 14px' : '14px 14px 14px 4px',
       background: isMine ? 'var(--lime)' : 'var(--s2)',
-      color: isMine ? '#060608' : 'var(--t1)',
+      color: isMine ? '#0A1931' : 'var(--t1)',
       fontSize: 14, lineHeight: 1.5,
     }}>
       <div>{msg.content}</div>

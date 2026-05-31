@@ -244,7 +244,7 @@ export default function UserProgress() {
                 <label className="form-label">Mood</label>
                 <div style={{ display:'flex', gap:6 }}>
                   {MOODS.map(m => (
-                    <button key={m} onClick={() => set('mood',m)} style={{ flex:1, padding:'8px 4px', borderRadius:'var(--r-sm)', border:`1px solid ${form.mood===m?'var(--lime)':'var(--border)'}`, background: form.mood===m ? 'rgba(200,241,53,.1)' : 'transparent', color: form.mood===m ? 'var(--lime)' : 'var(--t2)', cursor:'pointer', fontSize:12, fontWeight: form.mood===m?700:400, fontFamily:'var(--font-body)', textTransform:'capitalize' }}>
+                    <button key={m} onClick={() => set('mood',m)} style={{ flex:1, padding:'8px 4px', borderRadius:'var(--r-sm)', border:`1px solid ${form.mood===m?'var(--lime)':'var(--border)'}`, background: form.mood===m ? 'rgba(46,138,255,.1)' : 'transparent', color: form.mood===m ? 'var(--lime)' : 'var(--t2)', cursor:'pointer', fontSize:12, fontWeight: form.mood===m?700:400, fontFamily:'var(--font-body)', textTransform:'capitalize' }}>
                       {m}
                     </button>
                   ))}

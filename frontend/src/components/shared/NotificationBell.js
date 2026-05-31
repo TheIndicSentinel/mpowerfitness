@@ -204,13 +204,13 @@ const NotificationBell = () => {
                 style={{
                   padding: '11px 16px',
                   borderBottom: i < Math.min(notifications.length, 30) - 1 ? '1px solid var(--border)' : 'none',
-                  background: n.isRead ? 'transparent' : 'rgba(200,241,53,0.04)',
+                  background: n.isRead ? 'transparent' : 'rgba(46,138,255,0.04)',
                   display: 'flex', gap: 10, alignItems: 'flex-start',
                   cursor: (n.isRead && !n.actionUrl) ? 'default' : 'pointer',
                   transition: 'background 0.12s',
                 }}
-                onMouseEnter={e => { if (!n.isRead || n.actionUrl) e.currentTarget.style.background = n.isRead ? 'var(--s1)' : 'rgba(200,241,53,0.07)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = n.isRead ? 'transparent' : 'rgba(200,241,53,0.04)'; }}
+                onMouseEnter={e => { if (!n.isRead || n.actionUrl) e.currentTarget.style.background = n.isRead ? 'var(--s1)' : 'rgba(46,138,255,0.07)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = n.isRead ? 'transparent' : 'rgba(46,138,255,0.04)'; }}
               >
                 <span style={{ fontSize: 17, flexShrink: 0, marginTop: 1 }}>
                   {TYPE_ICON[n.type] || '📣'}

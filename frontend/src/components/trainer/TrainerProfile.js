@@ -127,7 +127,7 @@ export default function TrainerProfile() {
 
       {/* Avatar banner */}
       <div className="card" style={{ marginBottom: 16, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-        <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(255,95,31,0.12)', color: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, fontWeight: 700, flexShrink: 0 }}>
+        <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(91,168,255,0.12)', color: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, fontWeight: 700, flexShrink: 0 }}>
           {form.name?.[0]?.toUpperCase() || '?'}
         </div>
         <div style={{ flex: 1 }}>
@@ -216,7 +216,7 @@ export default function TrainerProfile() {
             <F label="UPI ID (for receiving payments)">
               <input className="form-input" value={form.upiId} onChange={e => set('upiId', e.target.value)} placeholder="yourname@upi" />
             </F>
-            <div style={{ background: 'rgba(200,241,53,0.06)', border: '1px solid rgba(200,241,53,0.15)', borderRadius: 'var(--r-md)', padding: '12px 16px', fontSize: 13, color: 'var(--t2)', lineHeight: 1.7 }}>
+            <div style={{ background: 'rgba(46,138,255,0.06)', border: '1px solid rgba(46,138,255,0.15)', borderRadius: 'var(--r-md)', padding: '12px 16px', fontSize: 13, color: 'var(--t2)', lineHeight: 1.7 }}>
               💡 Clients pay via UPI directly to your ID. Set your UPI ID so payments are credited instantly.
             </div>
           </div>
@@ -235,7 +235,7 @@ export default function TrainerProfile() {
                     <button key={s} onClick={() => toggleSpec(s)}
                       style={{
                         padding: '6px 14px', borderRadius: 'var(--r-full)', border: `1px solid ${active ? 'var(--orange)' : 'var(--border)'}`,
-                        background: active ? 'rgba(255,95,31,0.12)' : 'transparent', color: active ? 'var(--orange)' : 'var(--t2)',
+                        background: active ? 'rgba(91,168,255,0.12)' : 'transparent', color: active ? 'var(--orange)' : 'var(--t2)',
                         cursor: 'pointer', fontSize: 12, fontWeight: active ? 600 : 400, fontFamily: 'var(--font-body)',
                         textTransform: 'capitalize', transition: 'all 0.15s',
                       }}>

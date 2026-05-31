@@ -47,7 +47,7 @@ const AdminLogin = () => {
                 value={form.password} onChange={e => setForm({...form, password:e.target.value})} required/>
             </div>
             <button type="submit" className="btn btn-full" style={{
-              height:46, fontSize:15, background:'linear-gradient(135deg,#4E9FFF,#0066cc)',
+              height:46, fontSize:15, background:'linear-gradient(135deg,#5BA8FF,#1A6FE0)',
               color:'#fff', border:'none', borderRadius:10, fontWeight:600, cursor:'pointer', transition:'opacity 0.2s'
             }} disabled={isLoading}
               onMouseEnter={e => { if(!isLoading) e.currentTarget.style.opacity='0.9'; }}

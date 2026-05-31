@@ -51,7 +51,7 @@ export default function UserProfile() {
   const bmiRaw = form.height && form.weight ? form.weight / ((form.height / 100) ** 2) : null;
   const bmi = bmiRaw ? bmiRaw.toFixed(1) : null;
   const bmiCategory = bmiRaw
-    ? bmiRaw < 18.5 ? { label:'Underweight', color:'#4E9FFF' }
+    ? bmiRaw < 18.5 ? { label:'Underweight', color:'#5BA8FF' }
     : bmiRaw < 25   ? { label:'Normal',      color:'var(--success)' }
     : bmiRaw < 30   ? { label:'Overweight',  color:'var(--warning)' }
     :                  { label:'Obese',       color:'var(--error)' }
@@ -69,7 +69,7 @@ export default function UserProfile() {
       </div>
 
       <div className="card" style={{ marginBottom:20, display:'flex', alignItems:'center', gap:18 }}>
-        <div style={{ width:72, height:72, borderRadius:'50%', background:'rgba(200,241,53,0.15)', color:'var(--lime)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:28, fontWeight:700, flexShrink:0 }}>{form.name?.[0]?.toUpperCase()||'?'}</div>
+        <div style={{ width:72, height:72, borderRadius:'50%', background:'rgba(46,138,255,0.15)', color:'var(--lime)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:28, fontWeight:700, flexShrink:0 }}>{form.name?.[0]?.toUpperCase()||'?'}</div>
         <div>
           <div style={{ fontWeight:700, fontSize:18 }}>{form.name||'Your Name'}</div>
           <div style={{ fontSize:13, color:'var(--t3)', textTransform:'capitalize' }}>{FITNESS_GOALS.find(g=>g.value===form.fitnessGoal)?.label} · {FITNESS_LEVELS.find(l=>l.value===form.fitnessLevel)?.label}</div>
@@ -82,7 +82,7 @@ export default function UserProfile() {
       </div>
 
       <div style={{ display:'flex', gap:2, marginBottom:20, background:'var(--s2)', padding:4, borderRadius:'var(--r-md)', border:'1px solid var(--border)' }}>
-        {TABS.map(t => <button key={t.id} onClick={() => setTab(t.id)} style={{ flex:1, padding:'8px 12px', borderRadius:'var(--r-sm)', border:'none', cursor:'pointer', fontFamily:'var(--font-body)', fontSize:13, fontWeight:600, transition:'all 0.15s', background: tab===t.id ? 'var(--lime)' : 'transparent', color: tab===t.id ? '#060608' : 'var(--t2)' }}>{t.label}</button>)}
+        {TABS.map(t => <button key={t.id} onClick={() => setTab(t.id)} style={{ flex:1, padding:'8px 12px', borderRadius:'var(--r-sm)', border:'none', cursor:'pointer', fontFamily:'var(--font-body)', fontSize:13, fontWeight:600, transition:'all 0.15s', background: tab===t.id ? 'var(--lime)' : 'transparent', color: tab===t.id ? '#0A1931' : 'var(--t2)' }}>{t.label}</button>)}
       </div>
 
       <div className="card">
@@ -129,7 +129,7 @@ export default function UserProfile() {
                 </div>
                 <div style={{ flex:1, minWidth:120 }}>
                   <div style={{ fontSize:11, color:'var(--t3)', marginBottom:6 }}>BMI Scale (WHO)</div>
-                  {[['< 18.5','Underweight','#4E9FFF'],['18.5–24.9','Normal','var(--success)'],['25–29.9','Overweight','var(--warning)'],['≥ 30','Obese','var(--error)']].map(([range, cat, col]) => (
+                  {[['< 18.5','Underweight','#5BA8FF'],['18.5–24.9','Normal','var(--success)'],['25–29.9','Overweight','var(--warning)'],['≥ 30','Obese','var(--error)']].map(([range, cat, col]) => (
                     <div key={cat} style={{ display:'flex', gap:8, alignItems:'center', marginBottom:3,
                       opacity: bmiCategory.label === cat ? 1 : 0.45 }}>
                       <div style={{ width:8, height:8, borderRadius:'50%', background:col, flexShrink:0 }}/>

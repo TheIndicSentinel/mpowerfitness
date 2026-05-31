@@ -2,75 +2,59 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 /**
- * Standard Logo Component (Final Brand Version)
- * 
- * Objectives:
- * 1. HIGH VISIBILITY: Scaled to 55px height to ensure readability of the tagline across all screens.
- * 2. NO OTHER CHANGES: Strictly sizing.
+ * Brand logo — original artwork recolored to the brand's electric blue (single,
+ * solid tone) via a CSS mask, so it matches the navy theme and stays legible.
+ *   LogoFull  → full "MP + MPower Fitness" wordmark  (/oglogo_final1.png)
+ *   LogoIcon  → the "MP" mark only                   (/fav_icon.png)
  */
-const FinalLogoFixed = ({ height = 55, style }) => {
-  return (
-    <div style={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      userSelect: 'none',
-      ...style
-    }}>
-      {/* 
-          Using your exact provided logo file: oglogo_final1.png
-          Standard height: 55px.
-      */}
-      <img 
-        src="/oglogo_final1.png" 
-        alt="MPower Fitness"
-        style={{
-          height: height,
-          width: 'auto', /* Preserves exact aspect ratio for the tagline */
-          display: 'block',
-          objectFit: 'contain'
-        }}
-      />
-    </div>
-  );
-};
+const FILL  = '#3E92FF';                 // solid electric blue
+const WORD  = '/oglogo_final1.png';      // full wordmark, 798×312
+const MARK  = '/fav_icon.png';           // MP mark, 287×211
+const WORD_RATIO = 798 / 312;
+const MARK_RATIO = 287 / 211;
 
-/* ─── Ready-to-use Standard Components ───────────────────────────── */
-export const LogoFull = ({ height = 55, linkTo = '/', style }) => {
-  const logo = <FinalLogoFixed height={height} style={style} />;
+const Masked = ({ src, ratio, height, style }) => (
+  <div
+    role="img"
+    aria-label="Mpower Fitness"
+    style={{
+      height,
+      width: Math.round(height * ratio),
+      background: FILL,
+      WebkitMaskImage: `url(${src})`,
+      maskImage: `url(${src})`,
+      WebkitMaskRepeat: 'no-repeat',
+      maskRepeat: 'no-repeat',
+      WebkitMaskSize: 'contain',
+      maskSize: 'contain',
+      WebkitMaskPosition: 'left center',
+      maskPosition: 'center',
+      ...style,
+    }}
+  />
+);
 
+export const LogoFull = ({ height = 50, linkTo = '/', style }) => {
+  const logo = <Masked src={WORD} ratio={WORD_RATIO} height={height} style={style} />;
   if (!linkTo) return logo;
   return (
-    <Link to={linkTo} style={{ display:'flex', alignItems:'center', textDecoration:'none' }} aria-label="MPower Fitness">
+    <Link to={linkTo} style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} aria-label="Mpower Fitness">
       {logo}
     </Link>
   );
 };
 
-export const LogoIcon = ({ size = 40, style }) => {
-  return (
-    <div style={{
-      width: size, height: size,
-      borderRadius: '10px',
-      background: '#0D0E12', 
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      overflow: 'hidden',
-      ...style
-    }}>
-      <img 
-        src="/oglogo_final1.png" 
-        alt="MP"
-        style={{
-          height: size * 1.8,
-          width: 'auto',
-          objectFit: 'contain',
-          objectPosition: 'left center',
-          marginLeft: '40%' /* Focuses specifically on the MP icon mark */
-        }}
-      />
-    </div>
-  );
-};
+/* Icon-only mark — the "MP" mark in a navy chip (collapsed sidebar, etc.) */
+export const LogoIcon = ({ size = 40, style }) => (
+  <div style={{
+    width: size, height: size, borderRadius: 10,
+    background: 'var(--s1)', border: '1px solid var(--border-bright)',
+    display: 'flex', alignItems: 'center', justifyContent: 'center', ...style,
+  }}>
+    <Masked src={MARK} ratio={MARK_RATIO} height={Math.round(size * 0.56)} />
+  </div>
+);
 
-export const LogoMark = ({ height = 55 }) => <LogoFull height={height} linkTo={null} />;
+export const LogoMark = ({ height = 50 }) => <LogoFull height={height} linkTo={null} />;
 
 export default LogoFull;

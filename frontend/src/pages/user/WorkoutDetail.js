@@ -113,8 +113,8 @@ const UserWorkoutDetail = () => {
       {/* Header — original fixed gradient, dynamic icon */}
       <div style={{
         borderRadius:'var(--radius-xl)', overflow:'hidden', marginBottom:24,
-        background:'linear-gradient(135deg, rgba(200,241,53,0.12) 0%, rgba(255,95,31,0.08) 100%)',
-        border:'1px solid rgba(200,241,53,0.2)', padding:'36px',
+        background:'linear-gradient(135deg, rgba(46,138,255,0.12) 0%, rgba(91,168,255,0.08) 100%)',
+        border:'1px solid rgba(46,138,255,0.2)', padding:'36px',
       }}>
         <div className="workout-header-row" style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexWrap:'wrap', gap:20 }}>
           <div style={{ flex:1, minWidth:0 }}>
@@ -139,7 +139,7 @@ const UserWorkoutDetail = () => {
       {/* Session Timer Bar */}
       {activeSession && (
         <div style={{
-          background:'rgba(200,241,53,0.08)', border:'1px solid rgba(200,241,53,0.3)',
+          background:'rgba(46,138,255,0.08)', border:'1px solid rgba(46,138,255,0.3)',
           borderRadius:'var(--radius-lg)', padding:'18px 24px', marginBottom:24,
           display:'flex', alignItems:'center', gap:20, flexWrap:'wrap',
         }}>
@@ -187,8 +187,8 @@ const UserWorkoutDetail = () => {
               return (
                 <div key={i} style={{
                   width:'100%', boxSizing:'border-box', minWidth:0,
-                  background: isCompleted ? 'rgba(34,217,122,0.06)' : isCurrent ? 'rgba(200,241,53,0.08)' : 'var(--surface)',
-                  border:`1px solid ${isCompleted ? 'rgba(34,217,122,0.25)' : isCurrent ? 'rgba(200,241,53,0.3)' : 'var(--border)'}`,
+                  background: isCompleted ? 'rgba(34,217,122,0.06)' : isCurrent ? 'rgba(46,138,255,0.08)' : 'var(--surface)',
+                  border:`1px solid ${isCompleted ? 'rgba(34,217,122,0.25)' : isCurrent ? 'rgba(46,138,255,0.3)' : 'var(--border)'}`,
                   borderRadius:'var(--radius-md)', padding:'16px 20px', transition:'all 0.3s',
                   opacity: activeSession && currentEx > i && !isCompleted ? 0.5 : 1,
                 }}>
@@ -196,7 +196,7 @@ const UserWorkoutDetail = () => {
                     <div style={{ display:'flex', alignItems:'flex-start', gap:14, flex:1, minWidth:0 }}>
                       <div style={{
                         width:32, height:32, borderRadius:'50%', flexShrink:0,
-                        background: isCompleted ? 'rgba(34,217,122,0.2)' : isCurrent ? 'rgba(200,241,53,0.2)' : 'var(--surface-3)',
+                        background: isCompleted ? 'rgba(34,217,122,0.2)' : isCurrent ? 'rgba(46,138,255,0.2)' : 'var(--surface-3)',
                         display:'flex', alignItems:'center', justifyContent:'center',
                         fontSize:14, fontWeight:700,
                         color: isCompleted ? 'var(--success)' : isCurrent ? 'var(--neon-lime)' : 'var(--text-muted)',

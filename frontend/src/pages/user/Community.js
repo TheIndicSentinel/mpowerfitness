@@ -23,15 +23,15 @@ const POST_TYPES = [
 ];
 
 const TYPE_COLORS = {
-  discussion: 'rgba(200,241,53,0.15)',
-  milestone:  'rgba(255,95,31,0.15)',
+  discussion: 'rgba(46,138,255,0.15)',
+  milestone:  'rgba(91,168,255,0.15)',
   question:   'rgba(78,159,255,0.15)',
   tip:        'rgba(34,217,122,0.15)',
 };
 const TYPE_TEXT = {
   discussion: 'var(--neon-lime)',
   milestone:  'var(--electric-orange)',
-  question:   '#4E9FFF',
+  question:   '#5BA8FF',
   tip:        '#22D97A',
 };
 
@@ -76,7 +76,7 @@ const GroupCard = ({ group, onClick }) => (
 
 /* ── Post card ─────────────────────────────────────────────────────── */
 const PostCard = ({ post, onLike, onDelete, currentUserId }) => {
-  const bg = TYPE_COLORS[post.type] || 'rgba(200,241,53,0.07)';
+  const bg = TYPE_COLORS[post.type] || 'rgba(46,138,255,0.07)';
   const tc = TYPE_TEXT[post.type] || 'var(--neon-lime)';
   const liked = (post.likedBy || []).includes(currentUserId);
   const isOwner = post.authorId === currentUserId;
@@ -261,15 +261,15 @@ const Community = () => {
                   + Share your experience
                 </button>
               ) : (
-                <div style={{ background:'var(--surface)', border:'1px solid rgba(200,241,53,0.3)',
+                <div style={{ background:'var(--surface)', border:'1px solid rgba(46,138,255,0.3)',
                   borderRadius:12, padding:'18px' }}>
                   <div style={{ display:'flex', gap:8, marginBottom:12, flexWrap:'wrap' }}>
                     {POST_TYPES.slice(1).map(t => (
                       <button key={t.value} type="button" onClick={() => setNewType(t.value)} style={{
                         padding:'6px 14px', borderRadius:20, cursor:'pointer', fontSize:12, fontWeight:600,
                         fontFamily:'var(--font-body)',
-                        background: newType === t.value ? 'rgba(200,241,53,0.15)' : 'var(--surface-2)',
-                        border: `1px solid ${newType === t.value ? 'rgba(200,241,53,0.45)' : 'var(--border)'}`,
+                        background: newType === t.value ? 'rgba(46,138,255,0.15)' : 'var(--surface-2)',
+                        border: `1px solid ${newType === t.value ? 'rgba(46,138,255,0.45)' : 'var(--border)'}`,
                         color: newType === t.value ? 'var(--neon-lime)' : 'var(--text-muted)',
                       }}>
                         {t.label}
@@ -311,8 +311,8 @@ const Community = () => {
                 <button key={t.value} type="button" onClick={() => setPostType(t.value)} style={{
                   padding:'6px 14px', borderRadius:20, cursor:'pointer', fontSize:12, fontWeight:600,
                   fontFamily:'var(--font-body)',
-                  background: postType === t.value ? 'rgba(200,241,53,0.15)' : 'var(--surface-2)',
-                  border: `1px solid ${postType === t.value ? 'rgba(200,241,53,0.45)' : 'var(--border)'}`,
+                  background: postType === t.value ? 'rgba(46,138,255,0.15)' : 'var(--surface-2)',
+                  border: `1px solid ${postType === t.value ? 'rgba(46,138,255,0.45)' : 'var(--border)'}`,
                   color: postType === t.value ? 'var(--neon-lime)' : 'var(--text-muted)',
                 }}>
                   {t.label}
@@ -353,7 +353,7 @@ const Community = () => {
   return (
     <div style={{ padding:'28px 24px', maxWidth:960, margin:'0 auto' }}>
       {/* Hero */}
-      <div style={{ background:'linear-gradient(135deg, rgba(200,241,53,0.07) 0%, rgba(255,95,31,0.05) 100%)',
+      <div style={{ background:'linear-gradient(135deg, rgba(46,138,255,0.07) 0%, rgba(91,168,255,0.05) 100%)',
         border:'1px solid var(--border)', borderRadius:16, padding:'28px', marginBottom:32, textAlign:'center' }}>
         <div style={{ fontSize:36, marginBottom:10 }}>🫂</div>
         <h1 style={{ fontSize:26, fontWeight:800, marginBottom:8 }}>Condition-Specific Communities</h1>

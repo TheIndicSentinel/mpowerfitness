@@ -17,9 +17,9 @@ const ContactPage = () => {
   };
 
   return (
-    <InfoLayout>
+    <InfoLayout title="Contact Us" description="Get in touch with MPower Fitness — questions about plans, trainers, or your free consultation. We reply within 24 hours.">
       <div style={{ marginBottom:40 }}>
-        <div style={{ display:'inline-block', background:'rgba(200,241,53,.1)', border:'1px solid rgba(200,241,53,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Contact</div>
+        <div style={{ display:'inline-block', background:'rgba(46,138,255,.1)', border:'1px solid rgba(46,138,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--lime)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Contact</div>
         <h1 style={{ fontSize:'clamp(26px,4vw,40px)', fontWeight:800, marginBottom:12, lineHeight:1.2 }}>Get in <span style={{ color:'var(--lime)' }}>Touch</span></h1>
         <p style={{ fontSize:15, color:'var(--t2)', lineHeight:1.6 }}>Have a question, feedback, or need help? We're here for you.</p>
       </div>
@@ -68,7 +68,7 @@ const ContactPage = () => {
             { icon:'💬', title:'Live Chat', detail:'Available in the app', sub:'Mon–Sat, 9 AM – 9 PM IST', href:null },
           ].map(({ icon,title,detail,sub,href }) => (
             <div key={title} className="card" style={{ display:'flex', gap:14, alignItems:'flex-start' }}>
-              <div style={{ width:44, height:44, borderRadius:'var(--r-md)', background:'rgba(200,241,53,.08)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:20, flexShrink:0 }}>{icon}</div>
+              <div style={{ width:44, height:44, borderRadius:'var(--r-md)', background:'rgba(46,138,255,.08)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:20, flexShrink:0 }}>{icon}</div>
               <div>
                 <div style={{ fontWeight:600, fontSize:14, marginBottom:2 }}>{title}</div>
                 {href ? (

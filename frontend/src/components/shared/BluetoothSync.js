@@ -84,10 +84,10 @@ const parsePlx = (dv) => {
 /* ── Metric display metadata ───────────────────────────────────── */
 const METRICS_META = {
   heartRate:     { label:'Heart Rate', unit:'bpm',  icon:'❤️',  color:'#FF4D4D' },
-  spo2:          { label:'SpO₂',       unit:'%',    icon:'🫁',  color:'#4E9FFF' },
-  weight:        { label:'Weight',     unit:'kg',   icon:'⚖️',  color:'#C8F135' },
+  spo2:          { label:'SpO₂',       unit:'%',    icon:'🫁',  color:'#5BA8FF' },
+  weight:        { label:'Weight',     unit:'kg',   icon:'⚖️',  color:'#2E8AFF' },
   bodyFat:       { label:'Body Fat',   unit:'%',    icon:'📊',  color:'#FF9F40' },
-  caloriesBurned:{ label:'Calories',   unit:'kcal', icon:'🔥',  color:'#FF5F1F' },
+  caloriesBurned:{ label:'Calories',   unit:'kcal', icon:'🔥',  color:'#5BA8FF' },
   speed:         { label:'Speed',      unit:'km/h', icon:'💨',  color:'#22D97A' },
   cadence:       { label:'Cadence',    unit:'spm',  icon:'🦶',  color:'#A78BFA' },
   battery:       { label:'Battery',    unit:'%',    icon:'🔋',  color:'#FFB020' },

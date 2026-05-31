@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import useAuthStore from '../../store/authStore';
 import { LogoFull } from '../../components/shared/Logo';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+
+const isEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((e || '').trim());
 
 const EyeIcon = ({ open }) => open ? (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -20,9 +23,12 @@ const UserRegister = () => {
   const [showPass, setShowPass] = useState(false);
   const { registerUser, isLoading } = useAuthStore();
   const navigate = useNavigate();
+  useDocumentTitle('Create Your Free Account', 'Create your free MPower Fitness account and start your personalised fitness journey today.');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (form.name.trim().length < 2) { toast.error('Please enter your name'); return; }
+    if (!isEmail(form.email)) { toast.error('Please enter a valid email address'); return; }
     if (form.password.length < 8) { toast.error('Password must be at least 8 characters'); return; }
     const result = await registerUser(form);
     if (result.success) {
@@ -35,7 +41,7 @@ const UserRegister = () => {
 
   return (
     <div style={{ minHeight:'100vh', background:'var(--deep-black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
-      <div style={{ position:'absolute', top:'10%', right:'8%', width:500, height:500, background:'radial-gradient(circle, rgba(200,241,53,0.06) 0%, transparent 65%)', pointerEvents:'none' }}/>
+      <div style={{ position:'absolute', top:'10%', right:'8%', width:500, height:500, background:'radial-gradient(circle, rgba(46,138,255,0.06) 0%, transparent 65%)', pointerEvents:'none' }}/>
 
       <div style={{ width:'100%', maxWidth:420, animation:'slideUp 0.45s ease forwards' }}>
         <div style={{ display:'flex', justifyContent:'center', marginBottom:36 }}>

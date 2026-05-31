@@ -166,7 +166,7 @@ const AdminTrainers = () => {
                   const selected = addForm.specializations.includes(s);
                   return (
                     <button key={s} type="button" onClick={() => toggleSpec(s)}
-                      style={{ padding:'5px 12px', borderRadius:'var(--r-full)', border:`1.5px solid ${selected?'var(--lime)':'var(--border)'}`, background:selected?'rgba(200,241,53,.12)':'var(--s2)', cursor:'pointer', fontSize:12, fontWeight:selected?700:400, color:selected?'var(--lime)':'var(--t2)', fontFamily:'var(--font-body)', transition:'all .12s', textTransform:'capitalize' }}>
+                      style={{ padding:'5px 12px', borderRadius:'var(--r-full)', border:`1.5px solid ${selected?'var(--lime)':'var(--border)'}`, background:selected?'rgba(46,138,255,.12)':'var(--s2)', cursor:'pointer', fontSize:12, fontWeight:selected?700:400, color:selected?'var(--lime)':'var(--t2)', fontFamily:'var(--font-body)', transition:'all .12s', textTransform:'capitalize' }}>
                       {s.replace(/_/g,' ')}
                     </button>
                   );
@@ -208,7 +208,7 @@ const AdminTrainers = () => {
             <div key={t.id||t._id||i} className="card" style={{ borderColor:!t.isApproved?'rgba(255,176,32,.3)':'var(--border)', animation:`fadeIn .4s ease ${i*.05}s both` }}>
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:12 }}>
                 <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-                  <div className="avatar-placeholder" style={{ width:46, height:46, fontSize:18, background:'rgba(255,95,31,.12)', color:'var(--orange)', flexShrink:0 }}>{t.name?.[0]}</div>
+                  <div className="avatar-placeholder" style={{ width:46, height:46, fontSize:18, background:'rgba(91,168,255,.12)', color:'var(--orange)', flexShrink:0 }}>{t.name?.[0]}</div>
                   <div>
                     <div style={{ fontWeight:700, fontSize:14 }}>{t.name}</div>
                     <div style={{ fontSize:12, color:'var(--t3)' }}>{t.email}</div>

@@ -53,7 +53,7 @@ export const UserBookings = () => {
             <div key={b.id || b._id} className="card" style={{ animation: `fadeIn 0.4s ease ${i * 0.06}s forwards`, opacity: 0 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                  <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,95,31,0.15)', color: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 700, flexShrink: 0 }}>{b.trainer?.name?.[0]}</div>
+                  <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(91,168,255,0.15)', color: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, fontWeight: 700, flexShrink: 0 }}>{b.trainer?.name?.[0]}</div>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 2 }}>Session with {b.trainer?.name}</div>
                     <div style={{ fontSize: 13, color: 'var(--t2)' }}>
@@ -131,7 +131,7 @@ export const UserNutrition = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const goalColors = { weight_loss:'var(--orange)', muscle_gain:'var(--lime)', maintenance:'var(--info)', endurance:'var(--warning)', pcod:'#FF6B9D', diabetes:'#4E9FFF' };
+  const goalColors = { weight_loss:'var(--orange)', muscle_gain:'var(--lime)', maintenance:'var(--info)', endurance:'var(--warning)', pcod:'#FF6B9D', diabetes:'#5BA8FF' };
   const plan = selected || plans[0];
 
   // Normalize meals — handle legacy 'foods' key from seeded data
@@ -313,7 +313,7 @@ export const UserPrograms = () => {
                     const active = myPlan === k;
                     return (
                       <button key={k} onClick={() => setSelectedPlan(sp => ({ ...sp, [prog.id || prog._id]: k }))}
-                        style={{ flex: 1, padding: '8px 4px', borderRadius: 'var(--r-sm)', border: `2px solid ${active ? 'var(--lime)' : 'var(--border)'}`, background: active ? 'rgba(200,241,53,0.1)' : 'transparent', cursor: 'pointer', fontSize: 11, fontWeight: active ? 700 : 400, color: active ? 'var(--lime)' : 'var(--t2)', transition: 'all 0.15s' }}>
+                        style={{ flex: 1, padding: '8px 4px', borderRadius: 'var(--r-sm)', border: `2px solid ${active ? 'var(--lime)' : 'var(--border)'}`, background: active ? 'rgba(46,138,255,0.1)' : 'transparent', cursor: 'pointer', fontSize: 11, fontWeight: active ? 700 : 400, color: active ? 'var(--lime)' : 'var(--t2)', transition: 'all 0.15s' }}>
                         <div>₹{amt?.toLocaleString()}</div>
                         <div style={{ fontSize: 10, opacity: 0.8 }}>{k === 'monthly' ? '/ month' : k === 'quarterly' ? '/ 3 months' : '/ year'}</div>
                       </button>
@@ -390,7 +390,7 @@ export const UserProfile = () => {
 
       {/* Avatar & subscription */}
       <div className="card" style={{ marginBottom: 20, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-        <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(200,241,53,0.12)', border: '3px solid var(--lime)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 800, color: 'var(--lime)', flexShrink: 0 }}>
+        <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(46,138,255,0.12)', border: '3px solid var(--lime)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 800, color: 'var(--lime)', flexShrink: 0 }}>
           {user?.name?.[0]}
         </div>
         <div style={{ flexGrow: 1 }}>
@@ -451,10 +451,10 @@ const AssignedTrainerCard = ({ trainerId }) => {
 
   if (!trainer) return null;
   return (
-    <div className="card" style={{ marginTop: 16, borderColor: 'rgba(255,95,31,.2)' }}>
+    <div className="card" style={{ marginTop: 16, borderColor: 'rgba(91,168,255,.2)' }}>
       <h3 style={{ fontSize: 15, fontWeight: 700, marginBottom: 14, color: 'var(--orange)' }}>🏋️ Your Assigned Trainer</h3>
       <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-        <div className="avatar-placeholder" style={{ width: 52, height: 52, fontSize: 20, background: 'rgba(255,95,31,.12)', color: 'var(--orange)', flexShrink: 0 }}>{trainer.name?.[0]}</div>
+        <div className="avatar-placeholder" style={{ width: 52, height: 52, fontSize: 20, background: 'rgba(91,168,255,.12)', color: 'var(--orange)', flexShrink: 0 }}>{trainer.name?.[0]}</div>
         <div style={{ flex: 1 }}>
           <div style={{ fontWeight: 700, fontSize: 15 }}>{trainer.name}</div>
           <div style={{ fontSize: 12, color: 'var(--warning)', marginBottom: 4 }}>⭐ {(trainer.rating || 0).toFixed(1)} · {trainer.experience}yr exp</div>
@@ -562,7 +562,7 @@ export const UserChat = () => {
               return (
                 <div key={c.id || c._id} onClick={() => setActiveConvo(c)}
                   className="chat-conv-item"
-                  style={{ padding: '12px', borderRadius: 'var(--r-md)', background: isActive ? 'rgba(200,241,53,0.1)' : 'var(--s1)', border: `1px solid ${isActive ? 'var(--lime)' : 'var(--border)'}`, cursor: 'pointer' }}>
+                  style={{ padding: '12px', borderRadius: 'var(--r-md)', background: isActive ? 'rgba(46,138,255,0.1)' : 'var(--s1)', border: `1px solid ${isActive ? 'var(--lime)' : 'var(--border)'}`, cursor: 'pointer' }}>
                   <div style={{ fontWeight: 600, fontSize: 14 }}>{other?.name || 'Trainer'}</div>
                   <div style={{ fontSize: 12, color: 'var(--t3)', marginTop: 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {c.lastMessage?.content || 'No messages yet'}

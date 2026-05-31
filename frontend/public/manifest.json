@@ -1,0 +1,21 @@
+{
+  "short_name": "MPower",
+  "name": "MPower Fitness — Personal Training, Nutrition & Workouts",
+  "description": "India's most complete fitness platform. Personalised workouts, certified trainers, smart nutrition and real results.",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "fav_icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0A1931",
+  "background_color": "#0A1931",
+  "categories": ["health", "fitness", "lifestyle", "sports"]
+}

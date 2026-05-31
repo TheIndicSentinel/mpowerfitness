@@ -9,7 +9,7 @@ const Section = ({ title, children }) => (
 );
 
 const PrivacyPage = () => (
-  <InfoLayout>
+  <InfoLayout title="Privacy Policy" description="How MPower Fitness collects, uses and protects your personal and health data. Your data is yours — we never sell it.">
     <div style={{ marginBottom:40 }}>
       <div style={{ display:'inline-block', background:'rgba(78,159,255,.1)', border:'1px solid rgba(78,159,255,.2)', borderRadius:'var(--r-full)', padding:'5px 14px', fontSize:12, color:'var(--info)', fontWeight:600, letterSpacing:'.06em', textTransform:'uppercase', marginBottom:16 }}>Legal</div>
       <h1 style={{ fontSize:'clamp(26px,4vw,40px)', fontWeight:800, marginBottom:12 }}>Privacy <span style={{ color:'var(--lime)' }}>Policy</span></h1>

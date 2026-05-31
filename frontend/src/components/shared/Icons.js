@@ -31,7 +31,7 @@ export const AlertIcon = ({ size = 16, color = 'currentColor' }) => (
   </svg>
 );
 
-export const SpinnerIcon = ({ size = 18, color = '#C8F135' }) => (
+export const SpinnerIcon = ({ size = 18, color = '#2E8AFF' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round">
     <path d="M12 2a10 10 0 0 1 10 10" style={{ animation: 'spin 0.7s linear infinite' }}/>
     <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>

@@ -1,7 +1,12 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import { LogoFull } from './Logo';
+import {
+  LayoutDashboard, Dumbbell, Salad, BarChart3, Award, CalendarDays, CalendarCheck,
+  Target, Users, MessageCircle, User, Flame, Star, BookOpen, Calendar, TrendingUp,
+  CreditCard, Bell, FileText, Stethoscope, LogOut
+} from 'lucide-react';
+import { LogoFull, LogoIcon } from './Logo';
 import useAuthStore from '../../store/authStore';
 
 /* ── Shared link component ───────────────────────────────────────────── */
@@ -18,12 +23,7 @@ const NavItem = ({ to, icon, label, collapsed }) => (
 );
 
 /* ── Sign-out icon ───────────────────────────────────────────────────── */
-const SignOutIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink:0 }}>
-    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-    <polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
-  </svg>
-);
+const SignOutIcon = () => <LogOut size={16} strokeWidth={1.9}/>;
 
 /* ── Shared sidebar shell ────────────────────────────────────────────── */
 const SidebarShell = ({ collapsed, onToggle, accent, badge, badgeClass, userSub, navItems, onLogout }) => {
@@ -47,16 +47,9 @@ const SidebarShell = ({ collapsed, onToggle, accent, badge, badgeClass, userSub,
         justifyContent:'center',
       }}>
         {collapsed ? (
-          /* Collapsed: show icon M */
+          /* Collapsed: show bolt icon mark */
           <div style={{ display:'flex', justifyContent:'center' }}>
-            <div style={{
-              width:38, height:38, borderRadius:8,
-              background:'#07080A',
-              border:`1px solid rgba(${accent},.2)`,
-              display:'flex', alignItems:'center', justifyContent:'center',
-            }}>
-              <span style={{ fontFamily:"'Arial Black',sans-serif", fontWeight:900, fontSize:17, color:'var(--lime)', lineHeight:1 }}>M</span>
-            </div>
+            <LogoIcon size={38}/>
           </div>
         ) : (
           <>
@@ -121,6 +114,9 @@ const SidebarShell = ({ collapsed, onToggle, accent, badge, badgeClass, userSub,
   );
 };
 
+const I = 18; // icon size for nav items
+const S = 1.7; // stroke width
+
 /* ── User Sidebar ─────────────────────────────────────────────────────── */
 export const UserSidebar = ({ collapsed, onToggle }) => {
   const { user, logout } = useAuthStore();
@@ -129,20 +125,20 @@ export const UserSidebar = ({ collapsed, onToggle }) => {
   return (
     <SidebarShell
       collapsed={collapsed} onToggle={onToggle}
-      accent="200,241,53"
-      userSub={`🔥 ${user?.streak || 0} day streak`}
+      accent="46,138,255"
+      userSub={<><Flame size={12} style={{display:'inline',verticalAlign:'-1px'}}/> {user?.streak || 0} day streak</>}
       navItems={[
-        { to:'/user/dashboard', icon:'⊞', label:'Dashboard' },
-        { to:'/user/workouts',  icon:'💪', label:'Workouts' },
-        { to:'/user/nutrition', icon:'🥗', label:'Nutrition' },
-        { to:'/user/progress',  icon:'📊', label:'Progress' },
-        { to:'/user/trainers',  icon:'🏅', label:'My Trainer' },
-        { to:'/user/sessions',  icon:'🗓️', label:'My Sessions' },
-        { to:'/user/bookings',  icon:'📅', label:'My Bookings' },
-        { to:'/user/programs',  icon:'🎯', label:'Programs' },
-        { to:'/user/community',  icon:'🫂', label:'Community' },
-        { to:'/user/chat',      icon:'💬', label:'Messages' },
-        { to:'/user/profile',   icon:'👤', label:'Profile' },
+        { to:'/user/dashboard', icon:<LayoutDashboard size={I} strokeWidth={S}/>, label:'Dashboard' },
+        { to:'/user/workouts',  icon:<Dumbbell size={I} strokeWidth={S}/>,        label:'Workouts' },
+        { to:'/user/nutrition', icon:<Salad size={I} strokeWidth={S}/>,           label:'Nutrition' },
+        { to:'/user/progress',  icon:<BarChart3 size={I} strokeWidth={S}/>,       label:'Progress' },
+        { to:'/user/trainers',  icon:<Award size={I} strokeWidth={S}/>,           label:'My Trainer' },
+        { to:'/user/sessions',  icon:<CalendarDays size={I} strokeWidth={S}/>,    label:'My Sessions' },
+        { to:'/user/bookings',  icon:<CalendarCheck size={I} strokeWidth={S}/>,   label:'My Bookings' },
+        { to:'/user/programs',  icon:<Target size={I} strokeWidth={S}/>,          label:'Programs' },
+        { to:'/user/community', icon:<Users size={I} strokeWidth={S}/>,           label:'Community' },
+        { to:'/user/chat',      icon:<MessageCircle size={I} strokeWidth={S}/>,   label:'Messages' },
+        { to:'/user/profile',   icon:<User size={I} strokeWidth={S}/>,            label:'Profile' },
       ]}
       onLogout={doLogout}
     />
@@ -157,18 +153,18 @@ export const TrainerSidebar = ({ collapsed, onToggle }) => {
   return (
     <SidebarShell
       collapsed={collapsed} onToggle={onToggle}
-      accent="255,95,31"
-      userSub={`⭐ ${user?.rating?.toFixed(1) || '5.0'} rating`}
+      accent="91,168,255"
+      userSub={<><Star size={12} style={{display:'inline',verticalAlign:'-1px'}}/> {user?.rating?.toFixed(1) || '5.0'} rating</>}
       navItems={[
-        { to:'/trainer/dashboard', icon:'⊞', label:'Dashboard' },
-        { to:'/trainer/bookings',  icon:'📅', label:'Bookings' },
-        { to:'/trainer/clients',   icon:'👥', label:'My Clients' },
-        { to:'/trainer/schedule',  icon:'🗓️', label:'Availability' },
-        { to:'/trainer/workouts',  icon:'💪', label:'Workout Plans' },
-        { to:'/trainer/nutrition', icon:'🥗', label:'Nutrition Plans' },
-        { to:'/trainer/analytics', icon:'📈', label:'Analytics' },
-        { to:'/trainer/chat',      icon:'💬', label:'Messages' },
-        { to:'/trainer/profile',   icon:'👤', label:'Profile' },
+        { to:'/trainer/dashboard', icon:<LayoutDashboard size={I} strokeWidth={S}/>, label:'Dashboard' },
+        { to:'/trainer/bookings',  icon:<CalendarCheck size={I} strokeWidth={S}/>,   label:'Bookings' },
+        { to:'/trainer/clients',   icon:<Users size={I} strokeWidth={S}/>,           label:'My Clients' },
+        { to:'/trainer/schedule',  icon:<Calendar size={I} strokeWidth={S}/>,        label:'Availability' },
+        { to:'/trainer/workouts',  icon:<Dumbbell size={I} strokeWidth={S}/>,        label:'Workout Plans' },
+        { to:'/trainer/nutrition', icon:<Salad size={I} strokeWidth={S}/>,           label:'Nutrition Plans' },
+        { to:'/trainer/analytics', icon:<TrendingUp size={I} strokeWidth={S}/>,      label:'Analytics' },
+        { to:'/trainer/chat',      icon:<MessageCircle size={I} strokeWidth={S}/>,   label:'Messages' },
+        { to:'/trainer/profile',   icon:<User size={I} strokeWidth={S}/>,            label:'Profile' },
       ]}
       onLogout={doLogout}
     />
@@ -183,21 +179,21 @@ export const AdminSidebar = ({ collapsed, onToggle }) => {
   return (
     <SidebarShell
       collapsed={collapsed} onToggle={onToggle}
-      accent="78,159,255"
+      accent="46,138,255"
       userSub={user?.role?.toUpperCase() || 'ADMIN'}
       navItems={[
-        { to:'/admin/dashboard',     icon:'⊞', label:'Overview' },
-        { to:'/admin/users',         icon:'👥', label:'Users' },
-        { to:'/admin/trainers',      icon:'🏅', label:'Trainers' },
-        { to:'/admin/bookings',      icon:'📅', label:'Bookings' },
-        { to:'/admin/payments',      icon:'💳', label:'Revenue' },
-        { to:'/admin/workouts',      icon:'💪', label:'Workouts' },
-        { to:'/admin/programs',      icon:'🎯', label:'Programs' },
-        { to:'/admin/nutrition',     icon:'🥗', label:'Nutrition' },
-        { to:'/admin/analytics',     icon:'📈', label:'Analytics' },
-        { to:'/admin/notifications', icon:'🔔', label:'Notifications' },
-        { to:'/admin/blog',          icon:'📝', label:'Blog' },
-        { to:'/admin/consultations', icon:'🩺', label:'Consultations' },
+        { to:'/admin/dashboard',     icon:<LayoutDashboard size={I} strokeWidth={S}/>, label:'Overview' },
+        { to:'/admin/users',         icon:<Users size={I} strokeWidth={S}/>,           label:'Users' },
+        { to:'/admin/trainers',      icon:<Award size={I} strokeWidth={S}/>,           label:'Trainers' },
+        { to:'/admin/bookings',      icon:<CalendarCheck size={I} strokeWidth={S}/>,   label:'Bookings' },
+        { to:'/admin/payments',      icon:<CreditCard size={I} strokeWidth={S}/>,      label:'Revenue' },
+        { to:'/admin/workouts',      icon:<Dumbbell size={I} strokeWidth={S}/>,        label:'Workouts' },
+        { to:'/admin/programs',      icon:<Target size={I} strokeWidth={S}/>,          label:'Programs' },
+        { to:'/admin/nutrition',     icon:<Salad size={I} strokeWidth={S}/>,           label:'Nutrition' },
+        { to:'/admin/analytics',     icon:<TrendingUp size={I} strokeWidth={S}/>,      label:'Analytics' },
+        { to:'/admin/notifications', icon:<Bell size={I} strokeWidth={S}/>,            label:'Notifications' },
+        { to:'/admin/blog',          icon:<FileText size={I} strokeWidth={S}/>,        label:'Blog' },
+        { to:'/admin/consultations', icon:<Stethoscope size={I} strokeWidth={S}/>,     label:'Consultations' },
       ]}
       onLogout={doLogout}
     />

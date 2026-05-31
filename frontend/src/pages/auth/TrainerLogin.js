@@ -26,14 +26,14 @@ const TrainerLogin = () => {
 
   return (
     <div style={{ minHeight:'100vh', background:'var(--deep-black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
-      <div style={{ position:'absolute', top:'15%', left:'8%', width:450, height:450, background:'radial-gradient(circle, rgba(255,95,31,0.07) 0%, transparent 65%)', pointerEvents:'none' }}/>
+      <div style={{ position:'absolute', top:'15%', left:'8%', width:450, height:450, background:'radial-gradient(circle, rgba(91,168,255,0.07) 0%, transparent 65%)', pointerEvents:'none' }}/>
 
       <div style={{ width:'100%', maxWidth:420, animation:'slideUp 0.45s ease forwards' }}>
         <div style={{ display:'flex', justifyContent:'center', marginBottom:36 }}>
           <LogoFull height={55} />
         </div>
 
-        <div style={{ background:'var(--surface)', border:'1px solid rgba(255,95,31,0.15)', borderRadius:16, padding:'36px 32px' }}>
+        <div style={{ background:'var(--surface)', border:'1px solid rgba(91,168,255,0.15)', borderRadius:16, padding:'36px 32px' }}>
           <h1 style={{ fontSize:24, fontWeight:700, marginBottom:6, color:'var(--text-primary)' }}>Trainer Sign In</h1>
           <p style={{ color:'var(--text-secondary)', fontSize:14, marginBottom:28 }}>Access your dashboard and manage clients</p>
 
@@ -52,7 +52,7 @@ const TrainerLogin = () => {
               height:46, fontSize:15, background:'var(--electric-orange)', color:'#fff',
               border:'none', borderRadius:10, fontWeight:600, cursor:'pointer', transition:'all 0.2s'
             }} disabled={isLoading}
-              onMouseEnter={e => { if(!isLoading) e.currentTarget.style.background='#e0520a'; }}
+              onMouseEnter={e => { if(!isLoading) e.currentTarget.style.background='#1A6FE0'; }}
               onMouseLeave={e => e.currentTarget.style.background='var(--electric-orange)'}
             >
               {isLoading ? 'Signing in…' : 'Sign In as Trainer'}

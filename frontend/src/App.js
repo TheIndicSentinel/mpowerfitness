@@ -120,7 +120,7 @@ function App() {
             fontSize:14, fontFamily:'var(--font-body)',
             boxShadow:'var(--shadow-md)',
           },
-          success: { iconTheme:{ primary:'var(--neon-lime)', secondary:'#060608' } },
+          success: { iconTheme:{ primary:'var(--neon-lime)', secondary:'#0A1931' } },
           error:   { iconTheme:{ primary:'var(--error)',    secondary:'#fff' } },
           duration: 3500,
         }}

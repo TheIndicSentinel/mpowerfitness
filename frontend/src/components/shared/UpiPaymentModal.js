@@ -166,7 +166,7 @@ const UpiPaymentModal = ({ amount, type, subscriptionPlan, bookingId, programId,
 
         <div className="modal-body">
           {/* Amount badge */}
-          <div style={{ background:'rgba(200,241,53,.06)', border:'1px solid rgba(200,241,53,.15)',
+          <div style={{ background:'rgba(46,138,255,.06)', border:'1px solid rgba(46,138,255,.15)',
             borderRadius:'var(--r-md)', padding:'10px 16px', marginBottom:20,
             display:'flex', justifyContent:'space-between', alignItems:'center' }}>
             <span style={{ fontSize:13, color:'var(--t2)' }}>
