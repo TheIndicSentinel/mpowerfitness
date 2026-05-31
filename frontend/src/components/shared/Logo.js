@@ -2,40 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 /**
- * Brand logo — original artwork recolored to the brand's electric blue (single,
- * solid tone) via a CSS mask, so it matches the navy theme and stays legible.
- *   LogoFull  → full "MP + MPower Fitness" wordmark  (/oglogo_final1.png)
- *   LogoIcon  → the "MP" mark only                   (/fav_icon.png)
+ * Brand logo — original artwork recolored via CSS mask:
+ *   • MP mark + "MPower Fitness" → solid brand blue (#3E92FF)
+ *   • "strength | health | nutrition" tagline → light (--t2, same as nav menu text)
+ * LogoIcon / favicon use the same blue "MP" mark (/mp_blue.png).
  */
-const FILL  = '#3E92FF';                 // solid electric blue
-const WORD  = '/oglogo_final1.png';      // full wordmark, 798×312
-const MARK  = '/fav_icon.png';           // MP mark, 287×211
+const FILL = '#3E92FF';
+const WORD = '/oglogo_final1.png';
 const WORD_RATIO = 798 / 312;
-const MARK_RATIO = 287 / 211;
 
-const Masked = ({ src, ratio, height, style }) => (
-  <div
-    role="img"
-    aria-label="Mpower Fitness"
-    style={{
-      height,
-      width: Math.round(height * ratio),
-      background: FILL,
-      WebkitMaskImage: `url(${src})`,
-      maskImage: `url(${src})`,
-      WebkitMaskRepeat: 'no-repeat',
-      maskRepeat: 'no-repeat',
-      WebkitMaskSize: 'contain',
-      maskSize: 'contain',
-      WebkitMaskPosition: 'left center',
-      maskPosition: 'center',
-      ...style,
-    }}
-  />
+const maskStyle = (src) => ({
+  position: 'absolute', inset: 0,
+  WebkitMaskImage: `url(${src})`, maskImage: `url(${src})`,
+  WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat',
+  WebkitMaskSize: 'contain', maskSize: 'contain',
+  WebkitMaskPosition: 'center', maskPosition: 'center',
+});
+
+const WordLogo = ({ height, style }) => (
+  <div role="img" aria-label="Mpower Fitness"
+    style={{ position: 'relative', height, width: Math.round(height * WORD_RATIO), ...style }}>
+    {/* base: whole logo in brand blue */}
+    <div style={{ ...maskStyle(WORD), background: FILL }} />
+    {/* overlay: paint only the bottom tagline band in the light nav-text colour */}
+    <div style={{ ...maskStyle(WORD), background: 'var(--t2)', clipPath: 'inset(74% 0 0 0)' }} />
+  </div>
 );
 
 export const LogoFull = ({ height = 50, linkTo = '/', style }) => {
-  const logo = <Masked src={WORD} ratio={WORD_RATIO} height={height} style={style} />;
+  const logo = <WordLogo height={height} style={style} />;
   if (!linkTo) return logo;
   return (
     <Link to={linkTo} style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} aria-label="Mpower Fitness">
@@ -44,14 +39,14 @@ export const LogoFull = ({ height = 50, linkTo = '/', style }) => {
   );
 };
 
-/* Icon-only mark — the "MP" mark in a navy chip (collapsed sidebar, etc.) */
+/* Icon-only mark — blue "MP" in a navy chip (collapsed sidebar, etc.) */
 export const LogoIcon = ({ size = 40, style }) => (
   <div style={{
     width: size, height: size, borderRadius: 10,
     background: 'var(--s1)', border: '1px solid var(--border-bright)',
     display: 'flex', alignItems: 'center', justifyContent: 'center', ...style,
   }}>
-    <Masked src={MARK} ratio={MARK_RATIO} height={Math.round(size * 0.56)} />
+    <img src="/mp_blue.png" alt="MP" style={{ height: size * 0.5, width: 'auto', objectFit: 'contain' }} />
   </div>
 );
 
