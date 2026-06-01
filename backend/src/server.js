@@ -55,6 +55,10 @@ const dataDir = path.join(__dirname, '../data');
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
 const app = express();
+// Render (and most PaaS) put the app behind a single reverse proxy that sets
+// X-Forwarded-For. Trust exactly one hop so express-rate-limit can read the
+// real client IP without throwing ERR_ERL_UNEXPECTED_X_FORWARDED_FOR.
+app.set('trust proxy', 1);
 const httpServer = createServer(app);
 const allowedOrigins = process.env.NODE_ENV === 'production'
   ? [process.env.FRONTEND_URL || 'http://localhost:3000']
