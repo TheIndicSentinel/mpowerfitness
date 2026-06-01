@@ -101,12 +101,7 @@ const Landing = () => {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             <Link to="/login" style={{ fontWeight: 600, fontSize: 15, color: 'var(--t2)', textDecoration: 'none' }} className="landing-nav-links">Login</Link>
-            {!consultationDone
-              ? <button onClick={() => setShowConsult(true)} className="btn btn-primary" style={{ padding: '11px 20px', fontSize: 14 }}>Free Consultation</button>
-              : isAuthenticated
-                ? <Link to="/user/dashboard" className="btn btn-primary" style={{ padding: '11px 20px', fontSize: 14 }}>Dashboard</Link>
-                : <Link to="/register" className="btn btn-primary" style={{ padding: '11px 20px', fontSize: 14 }}>Get Started</Link>
-            }
+            <button onClick={() => setShowConsult(true)} className="btn btn-primary" style={{ padding: '11px 20px', fontSize: 14 }}>Free Consultation</button>
             {/* Hamburger */}
             <button className="landing-hamburger" onClick={() => setMobileOpen(o => !o)} aria-label="Menu"
               style={{ display: 'none', background: 'none', border: `1px solid ${L}`, borderRadius: 8, cursor: 'pointer', color: 'var(--t2)', padding: '6px 8px' }}>
@@ -123,7 +118,7 @@ const Landing = () => {
               <a key={h} href={h} className="landing-mobile-link" onClick={() => setMobileOpen(false)}>{l}</a>
             ))}
             <Link to="/login" className="landing-mobile-link" onClick={() => setMobileOpen(false)}>Login</Link>
-            {!consultationDone && (
+            {true && (
               <button className="btn btn-primary btn-full" style={{ marginTop: 8 }}
                 onClick={() => { setMobileOpen(false); setShowConsult(true); }}>Free Consultation</button>
             )}
@@ -165,12 +160,7 @@ const Landing = () => {
             </p>
 
             <div style={{ display:'flex', gap:14, marginTop:34, flexWrap:'wrap' }}>
-              {!consultationDone
-                ? <button onClick={() => setShowConsult(true)} className="btn btn-primary" style={{ fontSize:15, padding:'15px 26px' }}>Free Consultation →</button>
-                : isAuthenticated
-                  ? <Link to="/user/dashboard" className="btn btn-primary" style={{ fontSize:15, padding:'15px 26px' }}>Go to Dashboard →</Link>
-                  : <Link to="/register" className="btn btn-primary" style={{ fontSize:15, padding:'15px 26px' }}>Start free trial →</Link>
-              }
+              <button onClick={() => setShowConsult(true)} className="btn btn-primary" style={{ fontSize:15, padding:'15px 26px' }}>Free Consultation →</button>
               <a href="#how" className="btn btn-ghost" style={{ fontSize:15, padding:'15px 26px' }}>See how it works</a>
             </div>
 
@@ -267,7 +257,8 @@ const Landing = () => {
           </div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:18 }}>
             {programs.map(({ ic, name, desc, tag }) => (
-              <div key={name} className="card card-hover" style={{ border:`1px solid ${L}`, borderRadius:18, padding:26, background:'rgba(10,25,49,.5)', cursor:'pointer' }}>
+              <div key={name} className="card card-hover" style={{ border:`1px solid ${L}`, borderRadius:18, padding:26, background:'rgba(10,25,49,.5)', cursor:'pointer' }}
+                onClick={() => setShowConsult(true)}>
                 <div style={{ width:48, height:48, borderRadius:13, display:'grid', placeItems:'center', background:'rgba(46,107,255,.14)', marginBottom:18, fontSize:24 }}>{ic}</div>
                 <h3 style={{ fontSize:18.5, fontWeight:800, fontFamily:'var(--font-body)' }}>{name}</h3>
                 <p style={{ color:'var(--t2)', fontSize:14, lineHeight:1.5, marginTop:9 }}>{desc}</p>
@@ -390,12 +381,7 @@ const Landing = () => {
               <p style={{ margin:'20px auto 32px', color:'var(--t2)', fontSize:18, maxWidth:520 }}>
                 Take the 2-minute assessment and get your first personalised plan free.
               </p>
-              {!consultationDone
-                ? <button onClick={() => setShowConsult(true)} className="btn btn-primary" style={{ fontSize:16, padding:'17px 34px' }}>Free Consultation →</button>
-                : isAuthenticated
-                  ? <Link to="/user/dashboard" className="btn btn-primary" style={{ fontSize:16, padding:'17px 34px' }}>Go to Dashboard →</Link>
-                  : <Link to="/register" className="btn btn-primary" style={{ fontSize:16, padding:'17px 34px' }}>Start free trial →</Link>
-              }
+              <button onClick={() => setShowConsult(true)} className="btn btn-primary" style={{ fontSize:16, padding:'17px 34px' }}>Free Consultation →</button>
             </div>
           </div>
         </div>
