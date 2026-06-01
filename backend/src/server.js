@@ -60,8 +60,10 @@ const app = express();
 // real client IP without throwing ERR_ERL_UNEXPECTED_X_FORWARDED_FOR.
 app.set('trust proxy', 1);
 const httpServer = createServer(app);
+// FRONTEND_URL may be a comma-separated list (e.g. apex + www + onrender URL)
 const allowedOrigins = process.env.NODE_ENV === 'production'
-  ? [process.env.FRONTEND_URL || 'http://localhost:3000']
+  ? (process.env.FRONTEND_URL || 'http://localhost:3000')
+      .split(',').map(s => s.trim().replace(/\/$/, '')).filter(Boolean)
   : true;
 
 const io = new Server(httpServer, {
