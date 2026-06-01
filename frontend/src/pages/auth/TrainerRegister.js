@@ -35,7 +35,7 @@ const TrainerRegister = () => {
   };
 
   return (
-    <div style={{ minHeight:'100vh', background:'var(--deep-black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
+    <div style={{ minHeight:'100vh', background:'var(--black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
       <div style={{ position:'absolute', bottom:'15%', left:'10%', width:400, height:400, background:'radial-gradient(circle, rgba(91,168,255,0.06) 0%, transparent 65%)', pointerEvents:'none' }}/>
 
       <div style={{ width:'100%', maxWidth:500, animation:'slideUp 0.45s ease forwards' }}>
@@ -44,7 +44,7 @@ const TrainerRegister = () => {
           <span style={{ background:'rgba(91,168,255,0.12)', color:'var(--electric-orange)', border:'1px solid rgba(91,168,255,0.25)', borderRadius:6, padding:'3px 10px', fontSize:11, fontWeight:600, letterSpacing:'0.08em', textTransform:'uppercase' }}>Trainer Application</span>
         </div>
 
-        <div style={{ background:'var(--surface)', border:'1px solid rgba(91,168,255,0.15)', borderRadius:16, padding:'36px 32px' }}>
+        <div style={{ background:'linear-gradient(180deg,rgba(22,49,90,.55),rgba(10,25,49,.45))', border:'1px solid rgba(120,160,230,.14)', borderRadius:20, backdropFilter:'blur(8px)', padding:'36px 32px' }}>
           {/* Step indicator */}
           <div style={{ display:'flex', gap:8, marginBottom:28 }}>
             {[1,2].map(n => (

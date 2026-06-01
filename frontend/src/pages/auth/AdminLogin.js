@@ -23,7 +23,7 @@ const AdminLogin = () => {
   const fillDemo = () => setForm({ email:'admin@mpowerfitness.com', password:'Admin@123456' });
 
   return (
-    <div style={{ minHeight:'100vh', background:'var(--deep-black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
+    <div style={{ minHeight:'100vh', background:'var(--black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
       <div style={{ position:'absolute', top:'20%', right:'15%', width:380, height:380, background:'radial-gradient(circle, rgba(78,159,255,0.07) 0%, transparent 65%)', pointerEvents:'none' }}/>
 
       <div style={{ width:'100%', maxWidth:400, animation:'slideUp 0.45s ease forwards' }}>
@@ -31,7 +31,7 @@ const AdminLogin = () => {
           <LogoFull height={55} />
         </div>
 
-        <div style={{ background:'var(--surface)', border:'1px solid rgba(78,159,255,0.15)', borderRadius:16, padding:'36px 32px' }}>
+        <div style={{ background:'linear-gradient(180deg,rgba(22,49,90,.55),rgba(10,25,49,.45))', border:'1px solid rgba(120,160,230,.14)', borderRadius:20, backdropFilter:'blur(8px)', padding:'36px 32px' }}>
           <h1 style={{ fontSize:24, fontWeight:700, marginBottom:6, color:'var(--text-primary)' }}>Admin Sign In</h1>
           <p style={{ color:'var(--text-secondary)', fontSize:14, marginBottom:28 }}>Restricted — authorised personnel only</p>
 

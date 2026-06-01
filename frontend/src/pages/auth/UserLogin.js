@@ -36,16 +36,16 @@ const UserLogin = () => {
   };
 
   return (
-    <div style={{ minHeight:'100vh', background:'var(--deep-black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
-      <div style={{ position:'absolute', top:'15%', right:'10%', width:500, height:500, background:'radial-gradient(circle, rgba(46,138,255,0.06) 0%, transparent 65%)', pointerEvents:'none' }}/>
-      <div style={{ position:'absolute', bottom:'15%', left:'5%', width:350, height:350, background:'radial-gradient(circle, rgba(91,168,255,0.05) 0%, transparent 65%)', pointerEvents:'none' }}/>
+    <div style={{ minHeight:'100vh', background:'var(--black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', overflow:'hidden' }}>
+      <div style={{ position:'absolute', top:'10%', right:'-5%', width:480, height:480, borderRadius:'50%', background:'radial-gradient(circle,#2e6bff,transparent 70%)', filter:'blur(70px)', opacity:.45, pointerEvents:'none' }}/>
+      <div style={{ position:'absolute', bottom:'5%', left:'-5%', width:360, height:360, borderRadius:'50%', background:'radial-gradient(circle,#43d0ff,transparent 70%)', filter:'blur(70px)', opacity:.2, pointerEvents:'none' }}/>
 
       <div style={{ width:'100%', maxWidth:420, animation:'slideUp 0.45s ease forwards' }}>
         <div style={{ display:'flex', justifyContent:'center', marginBottom:36 }}>
           <LogoFull height={55} />
         </div>
 
-        <div style={{ background:'var(--surface)', border:'1px solid var(--border)', borderRadius:16, padding:'36px 32px' }}>
+        <div style={{ background:'linear-gradient(180deg,rgba(22,49,90,.55),rgba(10,25,49,.45))', border:'1px solid rgba(120,160,230,.14)', borderRadius:20, padding:'36px 32px', backdropFilter:'blur(8px)' }}>
           <h1 style={{ fontSize:24, fontWeight:700, marginBottom:6, color:'var(--text-primary)' }}>Welcome back</h1>
           <p style={{ color:'var(--text-secondary)', fontSize:14, marginBottom:28 }}>Sign in to continue your fitness journey</p>
 

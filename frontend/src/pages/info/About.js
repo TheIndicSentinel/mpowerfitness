@@ -8,7 +8,7 @@ const InfoLayout = ({ title, description, children }) => {
   useDocumentTitle(title, description);
   return (
     <div style={{ minHeight:'100vh', background:'var(--black)', display:'flex', flexDirection:'column' }}>
-      <header style={{ background:'var(--carbon)', borderBottom:'1px solid var(--border)', padding:'0 clamp(16px,4vw,40px)', height:72, display:'flex', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:100 }}>
+      <header style={{ backdropFilter:'blur(14px)', background:'rgba(8,17,33,.82)', borderBottom:'1px solid rgba(120,160,230,.14)', padding:'0 clamp(16px,4vw,40px)', height:74, display:'flex', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:100 }}>
         <LogoFull height={50} linkTo="/"/>
         <div style={{ display:'flex', gap:12 }}>
           <Link to="/login" className="btn btn-primary btn-sm">Login</Link>

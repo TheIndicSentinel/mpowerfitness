@@ -139,7 +139,7 @@ const Onboarding = () => {
   };
 
   return (
-    <div style={{ minHeight:'100vh', background:'var(--deep-black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px 16px' }}>
+    <div style={{ minHeight:'100vh', background:'var(--black)', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px 16px' }}>
       <div style={{ position:'absolute', top:'10%', right:'8%', width:400, height:400,
         background:'radial-gradient(circle, rgba(46,138,255,0.05) 0%, transparent 65%)', pointerEvents:'none' }}/>
       <div style={{ position:'absolute', bottom:'15%', left:'5%', width:300, height:300,
@@ -161,7 +161,7 @@ const Onboarding = () => {
         </div>
 
         {/* Card */}
-        <div style={{ background:'var(--surface)', border:'1px solid var(--border)', borderRadius:16, padding:'32px 28px', minHeight:360 }}>
+        <div style={{ background:'linear-gradient(180deg,rgba(22,49,90,.55),rgba(10,25,49,.45))', border:'1px solid rgba(120,160,230,.14)', borderRadius:20, backdropFilter:'blur(8px)', padding:'32px 28px', minHeight:360 }}>
           <h2 style={{ fontSize:22, fontWeight:700, marginBottom:4 }}>{STEPS[step].title}</h2>
           <p style={{ color:'var(--text-secondary)', fontSize:13, marginBottom:24, lineHeight:1.5 }}>{STEPS[step].subtitle}</p>
 
