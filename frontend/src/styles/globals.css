@@ -1046,6 +1046,14 @@ img, video { max-width: 100%; }
 @media (max-width: 768px) {
   .landing-nav-links { display: none !important; }
   .landing-hamburger { display: inline-flex !important; }
+  /* Logo: hide tagline — keep "Mpower Fitness" wordmark */
+  .logo-tagline { display: none !important; }
+}
+/* Logo: show badge only on very small screens */
+@media (max-width: 480px) {
+  .logo-text-block { display: none !important; }
+  /* Also hide nav CTA — it lives in the hamburger menu */
+  .landing-nav-cta { display: none !important; }
 }
 /* Hide hero right-panel on mobile (stats/progress graphic) */
 @media (max-width: 880px) {

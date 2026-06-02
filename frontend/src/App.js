@@ -50,6 +50,9 @@ const AdminNotifications = lazy(() => import('./pages/admin/Notifications'));
 const AdminBlog          = lazy(() => import('./pages/admin/Blog'));
 const AdminConsultations = lazy(() => import('./pages/admin/Consultations'));
 
+// Program pages
+const ProgramPage = lazy(() => import('./pages/programs/ProgramPage'));
+
 // Info pages
 const AboutPage         = lazy(() => import('./pages/info/About'));
 const ContactPage       = lazy(() => import('./pages/info/Contact'));
@@ -186,6 +189,9 @@ function App() {
             <Route path="blog"          element={<AdminBlog/>}/>
             <Route path="consultations" element={<AdminConsultations/>}/>
           </Route>
+
+          {/* Program pages — public */}
+          <Route path="/programs/:slug" element={<ProgramPage/>}/>
 
           {/* Info / legal pages — public */}
           <Route path="/info/about"          element={<AboutPage/>}/>

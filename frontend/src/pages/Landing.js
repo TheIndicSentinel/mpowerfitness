@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, lazy, Suspense } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LogoFull } from '../components/shared/Logo';
 import Footer from '../components/shared/Footer';
 import useAuthStore from '../store/authStore';
@@ -19,6 +19,7 @@ const Tick = () => (
 
 /* ── Landing ─────────────────────────────────────────────────────── */
 const Landing = () => {
+  const navigate = useNavigate();
   const heroRef = useRef(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showConsult, setShowConsult] = useState(false);
@@ -60,12 +61,12 @@ const Landing = () => {
   ];
 
   const programs = [
-    { ic: '🔥', name: 'Weight Loss', desc: 'Sustainable fat-loss built around food you actually enjoy and a schedule you can keep.', tag: 'Most popular' },
-    { ic: '💪', name: 'Strength & Muscle', desc: 'Progressive overload programming to build real, visible strength.', tag: 'Explore' },
-    { ic: '🌸', name: 'PCOD & Hormonal Health', desc: 'Training and nutrition designed with specialists for hormonal balance.', tag: 'Explore' },
-    { ic: '🩺', name: 'Diabetes & Thyroid', desc: 'Safe, condition-aware coaching that works alongside your medical care.', tag: 'Explore' },
-    { ic: '🌱', name: 'Beginner Kickstart', desc: 'Brand new to fitness? Start with confidence and zero overwhelm.', tag: 'Explore' },
-    { ic: '🥗', name: 'Nutrition Coaching', desc: 'Smart, flexible meal guidance — no crash diets, no banned foods.', tag: 'Explore' },
+    { ic: '🔥', name: 'Weight Loss', slug: 'weight-loss', desc: 'Sustainable fat-loss built around food you actually enjoy and a schedule you can keep.', tag: 'Most popular' },
+    { ic: '💪', name: 'Strength & Muscle', slug: 'strength-muscle', desc: 'Progressive overload programming to build real, visible strength.', tag: 'Explore' },
+    { ic: '🌸', name: 'PCOD & Hormonal Health', slug: 'pcod-hormonal', desc: 'Training and nutrition designed with specialists for hormonal balance.', tag: 'Explore' },
+    { ic: '🩺', name: 'Diabetes & Thyroid', slug: 'diabetes-thyroid', desc: 'Safe, condition-aware coaching that works alongside your medical care.', tag: 'Explore' },
+    { ic: '🌱', name: 'Beginner Kickstart', slug: 'beginner-kickstart', desc: 'Brand new to fitness? Start with confidence and zero overwhelm.', tag: 'Explore' },
+    { ic: '🥗', name: 'Nutrition Coaching', slug: 'nutrition-coaching', desc: 'Smart, flexible meal guidance — no crash diets, no banned foods.', tag: 'Explore' },
   ];
 
   const testimonials = [
@@ -90,7 +91,7 @@ const Landing = () => {
       {/* ── NAV ──────────────────────────────────────────────────── */}
       <header style={navStyle}>
         <nav style={{ ...wrap, display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 74 }}>
-          <LogoFull height={46} />
+          <LogoFull height={46} variant="concept3" />
 
           <div className="landing-nav-links" style={{ display: 'flex', gap: 34, fontSize: 15, fontWeight: 600, color: 'var(--t2)' }}>
             <a href="#how" className="landing-nav-link">How it works</a>
@@ -101,7 +102,7 @@ const Landing = () => {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             <Link to="/login" style={{ fontWeight: 600, fontSize: 15, color: 'var(--t2)', textDecoration: 'none' }} className="landing-nav-links">Login</Link>
-            <button onClick={() => setShowConsult(true)} className="btn btn-primary" style={{ padding: '11px 20px', fontSize: 14 }}>Free Consultation</button>
+            <button onClick={() => setShowConsult(true)} className="btn btn-primary landing-nav-cta" style={{ padding: '11px 20px', fontSize: 14 }}>Free Consultation</button>
             {/* Hamburger */}
             <button className="landing-hamburger" onClick={() => setMobileOpen(o => !o)} aria-label="Menu"
               style={{ display: 'none', background: 'none', border: `1px solid ${L}`, borderRadius: 8, cursor: 'pointer', color: 'var(--t2)', padding: '6px 8px' }}>
@@ -256,9 +257,9 @@ const Landing = () => {
             <p style={{ marginTop:18, color:'var(--t2)', fontSize:17, lineHeight:1.6 }}>From your first workout to specialised, condition-aware coaching — guided by trainers who've done it before.</p>
           </div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:18 }}>
-            {programs.map(({ ic, name, desc, tag }) => (
+            {programs.map(({ ic, name, slug, desc, tag }) => (
               <div key={name} className="card card-hover" style={{ border:`1px solid ${L}`, borderRadius:18, padding:26, background:'rgba(10,25,49,.5)', cursor:'pointer' }}
-                onClick={() => setShowConsult(true)}>
+                onClick={() => navigate(`/programs/${slug}`)}>
                 <div style={{ width:48, height:48, borderRadius:13, display:'grid', placeItems:'center', background:'rgba(46,107,255,.14)', marginBottom:18, fontSize:24 }}>{ic}</div>
                 <h3 style={{ fontSize:18.5, fontWeight:800, fontFamily:'var(--font-body)' }}>{name}</h3>
                 <p style={{ color:'var(--t2)', fontSize:14, lineHeight:1.5, marginTop:9 }}>{desc}</p>
@@ -359,7 +360,7 @@ const Landing = () => {
                     </li>
                   ))}
                 </ul>
-                <button onClick={() => !primary && null} className={`btn ${primary ? 'btn-primary' : 'btn-ghost'}`} style={{ justifyContent:'center', marginTop:'auto', padding:'13px 20px', fontSize:15 }}>
+                <button onClick={() => setShowConsult(true)} className={`btn ${primary ? 'btn-primary' : 'btn-ghost'}`} style={{ justifyContent:'center', marginTop:'auto', padding:'13px 20px', fontSize:15 }}>
                   {cta}
                 </button>
               </div>

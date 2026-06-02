@@ -57,7 +57,7 @@ const Footer = ({ variant = 'app' }) => {
 
           {/* Brand column */}
           <div style={{ gridColumn:'span 1' }}>
-            <LogoFull height={32} linkTo={isLanding ? '/' : null}/>
+            <LogoFull height={isLanding ? 44 : 32} linkTo={isLanding ? '/' : null} />
             <p style={{ fontSize:13, color:'var(--t2)', marginTop:12, lineHeight:1.65, maxWidth:240 }}>
               India's all-in-one fitness platform — workouts, nutrition, certified trainers and progress tracking.
             </p>
